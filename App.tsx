@@ -8,7 +8,6 @@ import PressArchive from './components/PressArchive';
 import Credits from './components/Credits';
 import Footer from './components/Footer';
 import SocialProof from './components/SocialProof';
-import WatermarkLab from './components/WatermarkLab';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -46,10 +45,6 @@ const App: React.FC = () => {
 
             <section id="spotify-showcase">
               <SocialProof />
-            </section>
-
-            <section id="security" className="bg-[#050505]">
-              <WatermarkLab />
             </section>
 
             <section id="press" className="py-32 bg-[#020202]">

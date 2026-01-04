@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
     { name: 'Inicio', type: 'page', page: 'home', href: '#hero' },
     { name: 'Biografía', type: 'page', page: 'biography', href: '#bio' },
     { name: 'Catálogo', type: 'anchor', href: '#work' },
-    { name: 'Protección DSSS', type: 'anchor', href: '#security' },
+    { name: 'Sincronización', type: 'anchor', href: '#spotify-showcase' },
     { name: 'Prensa', type: 'anchor', href: '#press' },
     { name: 'Créditos', type: 'anchor', href: '#credits' },
     { name: 'Contacto', type: 'anchor', href: '#contact' },
@@ -104,7 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
             <div className="flex flex-col gap-8">
               <div className="flex justify-between items-center border-b border-white/5 pb-4">
                 <div className="text-[7px] text-[#cc4e00] tracking-[0.6em] uppercase font-mono font-black">Navegación</div>
-                <div className="text-[7px] text-white/20 font-mono tracking-widest">v2.1.3</div>
+                <div className="text-[7px] text-white/20 font-mono tracking-widest">v2.1.5</div>
               </div>
               
               <ul className="flex flex-col gap-5">
