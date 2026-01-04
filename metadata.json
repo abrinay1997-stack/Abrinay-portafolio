@@ -1,7 +1,5 @@
 {
   "name": "ABRINAY PORTAFOLIO",
   "description": "A high-end cinematic portfolio for a film composer featuring an integrated DSSS (Direct Sequence Spread Spectrum) audio watermarking tool for copyright protection.",
-  "requestFramePermissions": [
-    "microphone"
-  ]
+  "requestFramePermissions": []
 }

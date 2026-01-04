@@ -14,7 +14,8 @@ const ChevronRightIcon = () => (
     </svg>
 );
 
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
+// Define SectionTitle with optional children to avoid strict TS errors in certain environments
+const SectionTitle = ({ children }: { children?: React.ReactNode }) => (
     <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-wider uppercase bg-gradient-to-r from-white via-[#cc4e00] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_4s_linear_infinite] text-center font-cinematic">
         {children}
     </h2>
@@ -42,13 +43,7 @@ export const SocialProof = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const length = spotifyTracks.length;
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            nextSlide();
-        }, 6000); 
-        return () => clearInterval(interval);
-    }, [currentIndex]);
-
+    // Defined before useEffect for clarity
     const nextSlide = () => {
         setCurrentIndex((prev) => (prev + 1) % length);
     };
@@ -60,6 +55,13 @@ export const SocialProof = () => {
     const handleDotClick = (index: number) => {
         setCurrentIndex(index);
     };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nextSlide();
+        }, 6000); 
+        return () => clearInterval(interval);
+    }, [currentIndex]);
 
     return (
         <section id="spotify-showcase" className="w-full pt-32 pb-40 overflow-hidden bg-black border-y border-white/5">

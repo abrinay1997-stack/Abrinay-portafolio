@@ -10,7 +10,6 @@ import Footer from './components/Footer';
 import SocialProof from './components/SocialProof';
 import WatermarkLab from './components/WatermarkLab';
 import LatestNews from './components/LatestNews';
-import AudioInterface from './components/AudioInterface';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -59,7 +58,6 @@ const App: React.FC = () => {
 
       {/* El Footer tiene el ID #contact interno */}
       <Footer />
-      <AudioInterface />
     </div>
   );
 };
