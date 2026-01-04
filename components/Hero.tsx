@@ -41,27 +41,9 @@ const Hero: React.FC = () => {
           ABRINAY VOID
         </h1>
         
-        <p className="text-white/40 text-[10px] md:text-[12px] tracking-[0.8em] uppercase mb-20 max-w-2xl mx-auto leading-relaxed font-bold">
+        <p className="text-white/40 text-[10px] md:text-[12px] tracking-[0.8em] uppercase max-w-2xl mx-auto leading-relaxed font-bold">
           Diseño Sonoro | Composición | Grabacion | Mezcla | Mastering
         </p>
-        
-        <div className="flex flex-col md:flex-row gap-12 justify-center items-center">
-          <a 
-            href="#work" 
-            className="group relative border border-white/5 text-white/80 px-16 py-5 text-[10px] font-bold tracking-[0.6em] uppercase transition-all duration-700 overflow-hidden"
-          >
-            <span className="relative z-10 group-hover:text-black">Catálogo Selecto</span>
-            <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-          </a>
-          <a 
-            href="https://www.youtube.com/@Abrinay_"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/30 hover:text-[#cc4e00] text-[10px] font-bold tracking-[0.6em] uppercase transition-all duration-500 underline-offset-8 hover:underline"
-          >
-            Reel 2026
-          </a>
-        </div>
       </div>
 
       {/* Decorative elements */}
