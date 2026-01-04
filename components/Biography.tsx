@@ -3,29 +3,29 @@ import React from 'react';
 
 const Biography: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6 py-32">
+    <div className="max-w-7xl mx-auto px-6 py-20 lg:py-40">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
         <div className="space-y-16">
           <div className="flex items-start gap-8">
             <div className="inline-block border-l-4 border-[#cc4e00] pl-10">
-              <h2 className="font-cinematic text-4xl md:text-6xl font-bold text-white uppercase tracking-tighter leading-none">
+              <h2 className="font-cinematic text-4xl md:text-7xl font-bold text-white uppercase tracking-tighter leading-none mb-4">
                 ABRINAY<br />
               </h2>
-              <p className="text-xs text-[#cc4e00] tracking-[0.6em] uppercase mt-6 font-mono font-bold">Productor & Diseñador Sonoro</p>
+              <p className="text-[10px] text-[#cc4e00] tracking-[0.6em] uppercase mt-4 font-mono font-black">Productor & Diseñador Sonoro</p>
             </div>
             <div className="text-[9px] text-white/10 font-mono pt-2 hidden md:block">
-              LOG_INDEX: AB_2009
+              AUTH_INDEX: AB_2009_BOG
             </div>
           </div>
 
-          <div className="space-y-10 text-white/50 text-[14px] leading-[2] tracking-wider uppercase font-mono">
-            <p>
-              Brian Joel Carvajal Mahecha (Abrinay) es el arquitecto sonoro detrás de una visión que fusiona el rap, la poesía y el diseño de audio para cine. Su carrera despegó en 2009 en Bogotá, evolucionando rápidamente hacia la independencia técnica.
+          <div className="space-y-12 text-white/60 text-[15px] md:text-[18px] leading-[1.8] tracking-widest uppercase font-mono">
+            <p className="animate-in slide-in-from-bottom duration-700 delay-100">
+              Brian Joel Carvajal Mahecha (Abrinay) es el arquitecto sonoro detrás de una visión que fusiona el rap, la poesía y el diseño de audio para cine. Su carrera despegó en 2009 en Bogotá, evolucionando rápidamente hacia la independencia técnica absoluta.
             </p>
-            <p>
+            <p className="animate-in slide-in-from-bottom duration-700 delay-200">
               En 2014 fundó <span className="text-white italic font-bold">BukoFlow</span>, especializándose en el licenciamiento de música para proyectos comerciales y cine, alcanzando un impacto de más de 90,000 descargas globales.
             </p>
-            <p>
+            <p className="animate-in slide-in-from-bottom duration-700 delay-300 border-l-2 border-white/10 pl-8 italic">
               Desde 2022, su alianza con <span className="text-[#cc4e00] font-bold">The Orchard (Sony Music)</span> y Symphonic Distribution ha consolidado su posición como una pieza clave en la distribución y producción de audio de alta fidelidad.
             </p>
           </div>
@@ -48,7 +48,7 @@ const Biography: React.FC = () => {
           <div className="absolute -top-10 -right-10 text-[9px] text-white/10 font-mono uppercase vertical-text tracking-[1.2em] group-hover:text-[#cc4e00]/40 transition-colors">
             SYST_MONITOR_ACTIVE
           </div>
-          <div className="glass p-12 md:p-16 relative z-10 space-y-16 border border-white/10 shadow-2xl">
+          <div className="glass p-12 md:p-16 relative z-10 space-y-16 border border-white/10 shadow-2xl bg-black/40">
             <h3 className="text-xs text-white/80 tracking-[0.5em] uppercase font-bold border-b border-white/10 pb-6 flex justify-between items-center">
               <span>HITOS CINEMATOGRÁFICOS</span>
               <div className="flex gap-1">

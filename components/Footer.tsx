@@ -1,6 +1,10 @@
 
 import React, { useState } from 'react';
 
+interface FooterProps {
+  onNavigate?: (page: 'home' | 'biography') => void;
+}
+
 const SOCIAL_LINKS = [
   { 
     name: 'Email', 
@@ -49,8 +53,14 @@ const LEGAL_TEXTS: Record<string, { title: string, content: string }> = {
   }
 };
 
-const Footer: React.FC = () => {
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const [activeModal, setActiveModal] = useState<string | null>(null);
+
+  const handlePageLink = (page: 'home' | 'biography') => {
+    if (onNavigate) {
+      onNavigate(page);
+    }
+  };
 
   return (
     <footer id="contact" className="py-32 border-t border-white/10 bg-[#050505] relative z-40">
@@ -104,8 +114,9 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center text-[9px] text-white/40 uppercase tracking-[0.8em] gap-12 pt-20 border-t border-white/10">
-          <p className="font-bold tracking-widest">© 2026 ABRINAY | BUKOFLOW LLC.</p>
+          <p className="font-bold tracking-widest cursor-pointer hover:text-white transition-colors" onClick={() => handlePageLink('home')}>© 2026 ABRINAY | BUKOFLOW LLC.</p>
           <div className="flex gap-12 md:gap-16 font-bold">
+             <button onClick={() => handlePageLink('biography')} className="hover:text-[#cc4e00] transition-colors duration-300">Biografía</button>
             <button onClick={() => setActiveModal('legal')} className="hover:text-[#cc4e00] transition-colors duration-300">Aviso Legal</button>
             <button onClick={() => setActiveModal('privacy')} className="hover:text-[#cc4e00] transition-colors duration-300">Privacidad</button>
             <button onClick={() => setActiveModal('index')} className="hover:text-[#cc4e00] transition-colors duration-300">Índice</button>
