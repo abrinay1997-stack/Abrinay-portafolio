@@ -6,7 +6,15 @@
 
 Portafolio profesional de Abrinay - Compositor, diseñador sonoro y productor musical.
 
-## Ejecutar localmente
+## 🌐 Ver en vivo
+
+👉 **[https://abrinay1997-stack.github.io/Abrinay-portafolio/](https://abrinay1997-stack.github.io/Abrinay-portafolio/)**
+
+## 🚀 Deploy
+
+Este proyecto se deploya automáticamente a GitHub Pages cada vez que se hace push a la rama `main`.
+
+## 💻 Ejecutar localmente
 
 **Prerequisitos:** Node.js
 
@@ -18,6 +26,11 @@ Portafolio profesional de Abrinay - Compositor, diseñador sonoro y productor mu
 2. Ejecutar la aplicación:
    ```bash
    npm run dev
+   ```
+
+3. Construir para producción:
+   ```bash
+   npm run build
    ```
 
 La aplicación estará disponible en `http://localhost:3000`
