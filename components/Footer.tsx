@@ -37,15 +37,15 @@ const SOCIAL_LINKS = [
 const LEGAL_TEXTS: Record<string, { title: string, content: string }> = {
   legal: {
     title: "Aviso Legal",
-    content: "Abrinay Studios es una marca de producción independiente con operaciones en Bogotá y Panamá. Todo el material sonoro y visual aquí presentado está protegido por derechos de autor internacionales. El uso de la señal 'BukoFlow' sin autorización está prohibido."
+    content: "Abrinay Studios es una marca de producción independiente con operaciones en Bogotá y Panamá. Todo el material sonoro y visual aquí presentado está protegido por derechos de autor internacionales."
   },
   privacy: {
     title: "Política de Privacidad",
-    content: "Tu señal es segura. No recolectamos datos personales más allá de los necesarios para la comunicación profesional directa vía abrinay1997@gmail.com."
+    content: "No recolectamos datos personales más allá de los necesarios para la comunicación profesional directa vía abrinay1997@gmail.com."
   },
   index: {
     title: "Índice de Master 2026",
-    content: "Registro de Obras: Peter Doc Score, Cuando Florezcan OST, Catálogo Sony Orchard, Distribución Symphonic. Señal verificada."
+    content: "Registro de Obras: Peter Doc Score, Cuando Florezcan OST, Catálogo Sony Orchard, Distribución Symphonic."
   }
 };
 
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
   const [activeModal, setActiveModal] = useState<string | null>(null);
 
   return (
-    <footer id="contact" className="py-32 border-t border-white/5 bg-[#050505] relative z-40">
+    <footer id="contact" className="py-32 border-t border-white/10 bg-[#050505] relative z-40">
       {/* Modal Overlay */}
       {activeModal && (
         <div 
@@ -66,14 +66,14 @@ const Footer: React.FC = () => {
           >
             <button 
               onClick={() => setActiveModal(null)}
-              className="absolute top-6 right-6 text-white/20 hover:text-[#cc4e00] transition-colors uppercase text-[10px] font-mono tracking-widest"
+              className="absolute top-6 right-6 text-white/40 hover:text-[#cc4e00] transition-colors uppercase text-[10px] font-mono tracking-widest"
             >
               Cerrar [X]
             </button>
             <h3 className="font-cinematic text-lg text-white mb-8 tracking-[0.3em] uppercase border-l-2 border-[#cc4e00] pl-6">
               {LEGAL_TEXTS[activeModal].title}
             </h3>
-            <p className="text-[11px] text-white/40 leading-loose tracking-[0.1em] uppercase font-mono">
+            <p className="text-[11px] text-white/60 leading-loose tracking-[0.1em] uppercase font-mono">
               {LEGAL_TEXTS[activeModal].content}
             </p>
           </div>
@@ -90,10 +90,10 @@ const Footer: React.FC = () => {
               href={link.url} 
               target={link.name === 'Email' ? undefined : "_blank"}
               rel={link.name === 'Email' ? undefined : "noopener noreferrer"}
-              className="group relative flex items-center justify-center w-14 h-14 rounded-full border border-white/5 bg-white/0 hover:bg-white/5 hover:border-[#cc4e00]/40 transition-all duration-500 transform hover:scale-110"
+              className="group relative flex items-center justify-center w-14 h-14 rounded-full border border-white/10 bg-white/0 hover:bg-white/5 hover:border-[#cc4e00]/60 transition-all duration-500 transform hover:scale-110"
               title={link.name}
             >
-              <span className="text-white/30 group-hover:text-[#cc4e00] transition-colors duration-500">
+              <span className="text-white/40 group-hover:text-[#cc4e00] transition-colors duration-500">
                 {link.svg}
               </span>
               <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[7px] font-mono tracking-[0.4em] text-[#cc4e00] opacity-0 group-hover:opacity-100 transition-all duration-500 uppercase whitespace-nowrap">
@@ -103,12 +103,12 @@ const Footer: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-[8px] text-white/10 uppercase tracking-[0.8em] gap-12 pt-20 border-t border-white/5">
-          <p>© 2026 Abrinay Studios. High Fidelity Independent Music.</p>
-          <div className="flex gap-16 font-bold">
-            <button onClick={() => setActiveModal('legal')} className="hover:text-white transition-colors">Aviso Legal</button>
-            <button onClick={() => setActiveModal('privacy')} className="hover:text-white transition-colors">Privacidad</button>
-            <button onClick={() => setActiveModal('index')} className="hover:text-white transition-colors">Índice</button>
+        <div className="flex flex-col md:flex-row justify-between items-center text-[9px] text-white/40 uppercase tracking-[0.8em] gap-12 pt-20 border-t border-white/10">
+          <p className="font-bold tracking-widest">© 2026 ABRINAY | BUKOFLOW LLC.</p>
+          <div className="flex gap-12 md:gap-16 font-bold">
+            <button onClick={() => setActiveModal('legal')} className="hover:text-[#cc4e00] transition-colors duration-300">Aviso Legal</button>
+            <button onClick={() => setActiveModal('privacy')} className="hover:text-[#cc4e00] transition-colors duration-300">Privacidad</button>
+            <button onClick={() => setActiveModal('index')} className="hover:text-[#cc4e00] transition-colors duration-300">Índice</button>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const PROJECTS: Project[] = [
     genre: 'Original Score / Documentary',
     description: 'Banda sonora original para el largometraje documental sobre la invasión a Panamá.',
     category: 'film',
-    imageUrl: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*SI6Yg7z7wYeX_xHvT5axSg.jpeg'
+    imageUrl: 'https://cdn.myportfolio.com/2d2135c2-cc3b-4c97-8e3e-ba235dd00230/d9b7d24a-cf34-4286-b101-42eb1b574dcd_rw_1200.png?h=2b603ec46503ef64d59885837fd0934b'
   },
   {
     id: 'f2',
@@ -18,7 +18,15 @@ const PROJECTS: Project[] = [
     genre: 'Film Score / Drama',
     description: 'Composición integral y diseño sonoro para la pieza cinematográfica panameña.',
     category: 'film',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2730245a16d5064e1d90f23075c'
+    imageUrl: 'https://elsiglo.com.pa/binrepository/600x384/0c0/0d0/none/275766432/IHJJ/6132bf4a1adc1_ES24184296_MG281493175.jpg'
+  },
+  {
+    id: 'f3',
+    title: 'Memorial',
+    genre: 'Original Score / Atmosphere',
+    description: 'Pieza conmemorativa de profunda carga emocional y diseño sonoro inmersivo.',
+    category: 'film',
+    imageUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d4/b5/33/d4b5335d-c79c-ac17-1e9d-f7c1dee67a96/199257827093_cover.jpg/600x600cc.webp'
   },
   // Selected Production Works (Singles)
   {
@@ -50,6 +58,7 @@ const PROJECTS: Project[] = [
 const SPOTIFY_LINKS: Record<string, string> = {
   'f1': 'https://open.spotify.com/intl-es/album/3ro7kOlve8NELlySdBVpIR',
   'f2': 'https://open.spotify.com/intl-es/album/45oY2EKuZvN0uujVbckYkw',
+  'f3': 'https://music.apple.com/pa/album/memorial-single/1792578270',
   'p1': 'https://open.spotify.com/intl-es/track/1y9mnArBtexJx9WUuoVKKK',
   'p2': 'https://elsiglo.com.pa/farandula/dos-estaciones-dialogos-entre-el-clima-y-la-humanidad-MK15792259',
   'p3': 'https://open.spotify.com/intl-es/track/5tuxq8IrJspC0eCeB3aOTm'

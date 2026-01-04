@@ -73,11 +73,6 @@ const Hero: React.FC = () => {
         </div>
         <div className="text-[8px] text-white font-mono tracking-[0.6em] uppercase">Estudio Independiente / Bogotá - PTY</div>
       </div>
-
-      <div className="absolute bottom-12 right-12 text-right opacity-30 hidden md:block">
-        <div className="text-[8px] text-white tracking-[0.8em] uppercase mb-2 font-mono">BukoFlow Protocol</div>
-        <div className="text-[10px] text-[#cc4e00] font-mono tracking-widest font-bold">ACTIVE_CONNECTION</div>
-      </div>
     </div>
   );
 };

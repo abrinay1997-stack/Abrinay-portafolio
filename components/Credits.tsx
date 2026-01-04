@@ -32,10 +32,6 @@ const Credits: React.FC = () => {
           </div>
         ))}
       </div>
-      
-      <div className="mt-16 text-center">
-        <span className="text-[7px] text-white/5 uppercase tracking-[1em]">Sincronización de archivo completa // BukoFlow Protocol</span>
-      </div>
     </div>
   );
 };

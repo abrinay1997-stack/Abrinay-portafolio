@@ -36,7 +36,6 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
     { name: 'Perfil', href: '#bio' },
     { name: 'Catálogo', href: '#work' },
     { name: 'Sincronización', href: '#spotify-showcase' },
-    { name: 'Laboratorio', href: '#lab' },
     { name: 'Prensa', href: '#press' },
     { name: 'Créditos', href: '#credits' },
     { name: 'Contacto', href: '#contact' },
@@ -89,7 +88,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             <div className="flex flex-col gap-8">
               <div className="flex justify-between items-center border-b border-white/5 pb-4">
                 <div className="text-[7px] text-[#cc4e00] tracking-[0.6em] uppercase font-mono font-black">Navegación_Maestra</div>
-                <div className="text-[7px] text-white/20 font-mono tracking-widest">v2.1.0</div>
+                <div className="text-[7px] text-white/20 font-mono tracking-widest">v2.1.2</div>
               </div>
               
               <ul className="flex flex-col gap-5">

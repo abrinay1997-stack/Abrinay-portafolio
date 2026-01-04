@@ -15,9 +15,3 @@ export interface Credit {
   role: string;
   project: string;
 }
-
-export interface WatermarkStats {
-  psnr: number;
-  ber: boolean;
-  correlation: number;
-}
