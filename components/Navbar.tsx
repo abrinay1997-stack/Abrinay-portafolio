@@ -73,7 +73,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
         <div className="flex items-center gap-4 group">
           <button
             onClick={() => onNavigate('home')}
-            className="relative block"
+            className="flex items-center gap-4"
             aria-label="Ir al inicio"
           >
             <img 
@@ -81,6 +81,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
               alt="ABRINAY LOGO" 
               className="h-10 md:h-12 w-auto object-contain brightness-110 group-hover:drop-shadow-[0_0_15px_rgba(204,78,0,0.5)] transition-all duration-500"
             />
+            <span className="text-white font-cinematic text-xl tracking-[0.2em] font-bold hidden sm:block">ABRINAY</span>
           </button>
         </div>
 
