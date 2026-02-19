@@ -6,16 +6,16 @@ const Hero: React.FC = () => {
   return (
     <div className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[#050505]">
       {/* Background Ambience */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-[0.1]">
-        <div className="absolute bottom-0 left-0 w-full h-64 flex items-end justify-around px-4 gap-[4px]">
-          {[...Array(60)].map((_, i) => (
+      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none opacity-[0.15]">
+        <div className="absolute bottom-0 left-0 w-full h-64 flex items-end justify-around px-4 gap-[2px] md:gap-[4px]">
+          {[...Array(40)].map((_, i) => (
             <div 
               key={i} 
-              className="w-full bg-[#cc4e00]/40" 
+              className="w-full bg-[#cc4e00]/60 will-change-transform origin-bottom"
               style={{ 
-                height: `${Math.random() * 80}%`,
-                animation: `sound-wave ${2 + Math.random()}s infinite ease-in-out`,
-                animationDelay: `${i * 0.05}s`
+                height: `${20 + Math.random() * 60}%`,
+                animation: `sound-wave-hero ${1.5 + Math.random() * 2}s infinite ease-in-out`,
+                animationDelay: `${i * 0.08}s`
               }}
             ></div>
           ))}
@@ -23,11 +23,11 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[#050505]/95 z-10"></div>
+        <div className="absolute inset-0 bg-[#050505]/90 z-10"></div>
         <img 
           src="https://images.unsplash.com/photo-1478720568477-152d9b164e63?q=80&w=2000&auto=format&fit=crop" 
           alt="Atmosphere" 
-          className="w-full h-full object-cover grayscale opacity-10 transition-transform duration-[30s] hover:scale-110"
+          className="w-full h-full object-cover grayscale opacity-20 transition-transform duration-[30s]"
           fetchPriority="high"
         />
       </div>

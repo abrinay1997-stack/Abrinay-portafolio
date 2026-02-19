@@ -107,9 +107,10 @@
           height: 100%;
           pointer-events: none;
           z-index: 50;
-          opacity: 0.08;
+          opacity: 0.12;
           background-image: url("https://grainy-gradients.vercel.app/noise.svg");
           animation: noise-flicker 0.2s infinite steps(4);
+          will-change: transform;
       }
 
       @keyframes noise-flicker {
@@ -124,19 +125,22 @@
           position: fixed;
           inset: 0;
           background:
-            radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent 0%, rgba(0,0,0,0.8) 80%),
+            radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent 0%, rgba(0,0,0,0.9) 85%),
             radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
           pointer-events: none;
           z-index: 5;
-          transition: background 0.15s ease-out;
+          will-change: background;
       }
 
       .spotlight {
           position: fixed;
           inset: 0;
-          background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(204, 78, 0, 0.05), transparent 40%);
+          background:
+            radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(204, 78, 0, 0.15), transparent 80%),
+            radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.03), transparent 60%);
           pointer-events: none;
           z-index: 4;
+          will-change: background;
       }
 
       .brand-reveal {
@@ -211,6 +215,11 @@
         50% { height: 12px; }
       }
 
+      @keyframes sound-wave-hero {
+        0%, 100% { transform: scaleY(0.05); }
+        50% { transform: scaleY(1); }
+      }
+
       /* Scroll Reveal */
       .reveal {
         opacity: 0;
@@ -262,12 +271,18 @@
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
     <script>
+      let rafId = null;
       document.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth) * 100;
-        const y = (e.clientY / window.innerHeight) * 100;
-        document.documentElement.style.setProperty('--mouse-x', x + '%');
-        document.documentElement.style.setProperty('--mouse-y', y + '%');
-      });
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+        }
+        rafId = requestAnimationFrame(() => {
+          const x = (e.clientX / window.innerWidth) * 100;
+          const y = (e.clientY / window.innerHeight) * 100;
+          document.documentElement.style.setProperty('--mouse-x', x.toFixed(2) + '%');
+          document.documentElement.style.setProperty('--mouse-y', y.toFixed(2) + '%');
+        });
+      }, { passive: true });
     </script>
 </body>
 </html>
