@@ -153,7 +153,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
                   <li key={link.name}>
                     <button
                       onClick={() => handleLinkClick(link)}
-                      className="group/link flex items-center justify-between w-full text-left text-[12px] tracking-[0.22em] text-white/70 hover:text-white transition-all uppercase font-bold rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                      className="group/link flex items-center justify-between w-full text-left text-[12px] tracking-[0.22em] text-white/70 hover:text-white transition-all uppercase font-bold"
                     >
                       <span>{link.name}</span>
                       <span className="w-0 group-hover/link:w-4 h-[1px] bg-[#cc4e00] transition-all"></span>

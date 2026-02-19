@@ -52,8 +52,7 @@ const Hero: React.FC = () => {
           ABRINAY VOID
         </h1>
         
-        <p className="text-white/70 text-[12px] md:text-[13px] tracking-[0.2em] uppercase max-w-3xl mx-auto leading-relaxed font-bold">
-          Música original y diseño sonoro para cine, marcas y artistas que buscan una identidad sonora de alto impacto.
+        <p className="text-white/50 text-[12px] md:text-[13px] tracking-[0.35em] uppercase max-w-2xl mx-auto leading-relaxed font-bold">
           Diseño Sonoro | Composición | Grabación | Mezcla | Mastering
         </p>
 
