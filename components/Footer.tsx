@@ -37,7 +37,7 @@ const SOCIAL_LINKS = [
   }
 ];
 
-const LEGAL_TEXTS: Record<string, { title: string, content: string }> = {
+const LEGAL_TEXTS: Record<'legal' | 'privacy' | 'index', { title: string; content: string }> = {
   legal: {
     title: 'Aviso Legal',
     content: 'Abrinay Studios es una marca de producción independiente con operaciones en Bogotá y Panamá. Todo el material sonoro y visual aquí presentado está protegido por derechos de autor internacionales.'
@@ -53,7 +53,7 @@ const LEGAL_TEXTS: Record<string, { title: string, content: string }> = {
 };
 
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const [activeModal, setActiveModal] = useState<string | null>(null);
+  const [activeModal, setActiveModal] = useState<keyof typeof LEGAL_TEXTS | null>(null);
 
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -133,9 +133,13 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center text-[12px] text-white/60 uppercase tracking-[0.2em] gap-12 pt-20 border-t border-white/10">
-          <p className="font-bold tracking-widest cursor-pointer hover:text-white transition-colors" onClick={() => handlePageLink('home')}>
+          <button
+            type="button"
+            className="font-bold tracking-widest cursor-pointer hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm"
+            onClick={() => handlePageLink('home')}
+          >
             © 2026 ABRINAY | BUKOFLOW LLC.
-          </p>
+          </button>
           <div className="flex gap-12 md:gap-16 font-bold">
             <button onClick={() => handlePageLink('biography')} className="hover:text-[#cc4e00] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm">Biografía</button>
             <button onClick={() => setActiveModal('legal')} className="hover:text-[#cc4e00] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm">Aviso Legal</button>
