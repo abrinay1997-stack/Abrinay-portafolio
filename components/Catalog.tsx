@@ -8,15 +8,15 @@ const Catalog: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6">
-      <div className="mb-20 flex flex-col md:flex-row justify-between items-end border-l-4 border-[#cc4e00] pl-8 gap-6">
+      <div className="mb-20 flex flex-col md:flex-row justify-between items-end border-l border-white/10 pl-8 gap-6">
         <div>
-          <h2 className="font-cinematic text-3xl md:text-5xl font-bold text-white uppercase tracking-[0.2em]">Obras & Catálogo</h2>
-          <p className="text-xs text-[#cc4e00] tracking-[0.4em] uppercase mt-2 font-bold">Producción Discográfica y Cine</p>
+          <h2 className="text-h2 font-bold text-white uppercase tracking-[0.3em]">Obras & Catálogo</h2>
+          <p className="text-[10px] text-white/30 tracking-[0.5em] uppercase mt-4 font-mono">Archive // Production_Index</p>
         </div>
-        <div className="flex gap-8 text-[12px] tracking-[0.12em] uppercase text-white/70 mb-2 font-bold">
-          <button onClick={() => setFilter('all')} className={`${filter === 'all' ? 'text-[#cc4e00]' : ''} hover:text-white transition-colors`}>Todo</button>
-          <button onClick={() => setFilter('film')} className={`${filter === 'film' ? 'text-[#cc4e00]' : ''} hover:text-white transition-colors`}>Cine & Documental</button>
-          <button onClick={() => setFilter('prod')} className={`${filter === 'prod' ? 'text-[#cc4e00]' : ''} hover:text-white transition-colors`}>Producción / EP</button>
+        <div className="flex gap-8 text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2 font-mono">
+          <button onClick={() => setFilter('all')} className={`${filter === 'all' ? 'text-white border-b border-[#cc4e00]' : ''} hover:text-white transition-colors pb-1`}>All_Units</button>
+          <button onClick={() => setFilter('film')} className={`${filter === 'film' ? 'text-white border-b border-[#cc4e00]' : ''} hover:text-white transition-colors pb-1`}>Cinema</button>
+          <button onClick={() => setFilter('prod')} className={`${filter === 'prod' ? 'text-white border-b border-[#cc4e00]' : ''} hover:text-white transition-colors pb-1`}>Audio_Prod</button>
         </div>
       </div>
 
@@ -24,9 +24,9 @@ const Catalog: React.FC = () => {
         {PROJECTS.filter(p => filter === 'all' || p.category === filter).map((project) => (
           <article 
             key={project.id}
-            className="group relative flex flex-col bg-transparent"
+            className="group relative flex flex-col glass-card p-4 rounded-sm"
           >
-            <div className="relative aspect-[3/4] overflow-hidden rounded-sm shadow-2xl transition-all duration-700 group-hover:shadow-[#cc4e00]/20 group-hover:-translate-y-2">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-sm transition-all duration-700 group-hover:-translate-y-2">
               <img 
                 src={project.imageUrl} 
                 alt={project.title}
@@ -37,9 +37,9 @@ const Catalog: React.FC = () => {
               
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500"></div>
               
-              <div className="absolute top-4 left-4 flex gap-2">
-                <span className="bg-black/80 px-2 py-1 text-[11px] text-white/70 border border-white/5 font-mono">CODE: {project.id}</span>
-                <span className="bg-black/80 px-2 py-1 text-[11px] text-[#cc4e00] border border-[#cc4e00]/10 font-mono">MASTER</span>
+              <div className="absolute top-4 left-4 flex gap-2 z-20">
+                <span className="bg-black/90 px-2 py-1 text-[9px] text-white/40 border border-white/5 font-mono tracking-tighter uppercase">ID_{project.id}</span>
+                <span className="bg-[#cc4e00]/10 px-2 py-1 text-[9px] text-[#cc4e00] border border-[#cc4e00]/20 font-mono tracking-tighter uppercase">Digital_Master</span>
               </div>
 
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -53,15 +53,15 @@ const Catalog: React.FC = () => {
                 </a>
               </div>
 
-              <div className="absolute inset-0 p-8 flex flex-col justify-end pointer-events-none">
-                <span className="text-[11px] text-[#cc4e00] font-bold tracking-[0.2em] mb-3 uppercase">
-                  {project.genre}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end pointer-events-none z-10">
+                <span className="text-[10px] text-[#cc4e00] font-mono tracking-[0.3em] mb-3 uppercase">
+                  // {project.genre}
                 </span>
-                <h3 className="text-base font-bold text-white tracking-[0.05em] uppercase leading-tight mb-4">
+                <h3 className="text-lg font-bold text-white tracking-[0.1em] uppercase leading-tight mb-4">
                   {project.title}
                 </h3>
-                <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500">
-                  <p className="text-[13px] text-white/70 tracking-[0.08em] leading-relaxed font-light">
+                <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-700 ease-in-out">
+                  <p className="text-[11px] text-white/40 tracking-[0.05em] leading-relaxed font-mono">
                     {project.description}
                   </p>
                 </div>

@@ -89,9 +89,9 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
           {/* CTA Persistente - Fase 7 */}
           <a
             href="mailto:abrinay1997@gmail.com"
-            className="hidden md:block px-6 py-2 border border-[#cc4e00]/50 text-[#cc4e00] text-[10px] tracking-[0.2em] uppercase font-bold hover:bg-[#cc4e00] hover:text-black transition-all duration-500 rounded-full"
+            className="px-6 py-2 border border-white/10 text-white/40 text-[9px] tracking-[0.3em] uppercase font-mono hover:bg-white hover:text-black transition-all duration-500 rounded-sm"
           >
-            Contacto
+            Connect_Unit
           </a>
 
           <button 
@@ -109,13 +109,13 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
             </div>
           </button>
 
-          <div className={`absolute top-16 right-0 w-72 bg-[#0a0a0a] border border-[#cc4e00]/30 backdrop-blur-3xl p-8 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] origin-top-right z-[200] ${
+          <div className={`absolute top-16 right-0 w-72 glass-card p-8 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] origin-top-right z-[200] ${
             isMenuOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'
           }`}>
             <div className="flex flex-col gap-8">
               <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                <div className="text-[11px] text-[#cc4e00] tracking-[0.3em] uppercase font-mono font-black">Navegación</div>
-                <div className="text-[11px] text-white/30 font-mono tracking-[0.2em]">v2.1.5</div>
+                <div className="text-[9px] text-[#cc4e00] tracking-[0.4em] uppercase font-mono">System_Nav //</div>
+                <div className="text-[9px] text-white/10 font-mono tracking-[0.2em]">v3.0.0_STABLE</div>
               </div>
               
               <ul className="flex flex-col gap-5">
@@ -123,7 +123,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
                   <li key={link.name}>
                     <button 
                       onClick={() => handleLinkClick(link)}
-                      className="group/link flex items-center justify-between w-full text-left text-[12px] tracking-[0.22em] text-white/70 hover:text-white transition-all uppercase font-bold"
+                      className="group/link flex items-center justify-between w-full text-left text-[10px] tracking-[0.3em] text-white/30 hover:text-white transition-all uppercase font-mono"
                     >
                       <span>{link.name}</span>
                       <span className="w-0 group-hover/link:w-4 h-[1px] bg-[#cc4e00] transition-all"></span>

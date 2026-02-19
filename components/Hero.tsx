@@ -39,11 +39,11 @@ const Hero: React.FC = () => {
            <div className="w-8 h-[1px] bg-[#cc4e00]"></div>
         </div>
         
-        <h1 className="font-cinematic text-4xl md:text-7xl font-bold mb-8 glitch-text tracking-[0.1em] text-white uppercase" data-text={HERO_CONTENT.title}>
+        <h1 className="text-display font-cinematic brand-reveal mb-8" data-text={HERO_CONTENT.title}>
           {HERO_CONTENT.title}
         </h1>
         
-        <p className="text-white/50 text-[12px] md:text-[13px] tracking-[0.35em] uppercase max-w-2xl mx-auto leading-relaxed font-bold mb-12">
+        <p className="text-white/40 font-mono text-[10px] md:text-[12px] tracking-[0.4em] uppercase max-w-2xl mx-auto leading-relaxed mb-12">
           {HERO_CONTENT.subtitle}
         </p>
 
@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
           <div className="bar w-[1px] bg-[#cc4e00]" style={{animationDuration: '0.9s'}}></div>
           <div className="bar w-[1px] bg-[#cc4e00]" style={{animationDuration: '0.6s'}}></div>
         </div>
-        <div className="text-[11px] text-white/80 font-mono tracking-[0.25em] uppercase">{HERO_CONTENT.location}</div>
+        <div className="text-[10px] text-white/30 font-mono tracking-[0.3em] uppercase">{HERO_CONTENT.location}</div>
       </div>
     </div>
   );

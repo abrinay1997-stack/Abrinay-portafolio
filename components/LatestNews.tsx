@@ -27,18 +27,17 @@ const LatestNews: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-24">
-      <div className="border border-white/5 p-8 md:p-12 relative overflow-hidden bg-black">
-        <div className="absolute top-0 right-0 p-4 text-[9px] text-[#ff3c00] uppercase tracking-tighter font-mono font-bold">INFO_ACTUALIZADA_BUKOFLOW</div>
+      <div className="glass-card p-8 md:p-12 relative overflow-hidden rounded-sm">
+        <div className="absolute top-0 right-0 p-4 text-[9px] text-[#ff3c00] uppercase tracking-[0.3em] font-mono">Live_Data //</div>
         
-        <div className="mb-12">
-          <h2 className="text-white/80 text-[12px] font-bold tracking-[0.6em] uppercase mb-4">Monitor de Trayectoria</h2>
-          <div className="w-full h-[1px] bg-white/10"></div>
+        <div className="mb-12 border-l border-[#cc4e00]/30 pl-6">
+          <h2 className="text-white/30 text-[10px] tracking-[0.6em] uppercase mb-4 font-mono">System_Monitor // Trayectoria</h2>
         </div>
 
         {loading ? (
-          <div className="text-[10px] text-[#ff3c00] animate-pulse tracking-[0.4em] font-mono uppercase">Consultando Archivos de Sony/Symphonic...</div>
+          <div className="text-[10px] text-[#ff3c00] animate-pulse tracking-[0.4em] font-mono uppercase">Syncing_Satellite_Data...</div>
         ) : (
-          <div className="text-[11px] text-white/50 leading-loose tracking-[0.2em] uppercase font-mono italic">
+          <div className="text-[11px] text-white/40 leading-loose tracking-[0.1em] uppercase font-mono">
             {news}
           </div>
         )}
