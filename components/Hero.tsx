@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
            <div className="w-8 h-[1px] bg-[#cc4e00]"></div>
         </div>
         
-        <h1 className="text-display font-cinematic brand-reveal mb-8" data-text={HERO_CONTENT.title}>
+        <h1 data-text={HERO_CONTENT.title} className="text-display font-cinematic brand-reveal mb-8">
           {HERO_CONTENT.title.split('').map((char, i) => (
             <span
               key={i}
