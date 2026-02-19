@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import { NAV_LINKS } from '../content/siteContent';
 
 interface NavbarProps {
   isScrolled: boolean;
@@ -22,26 +23,22 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
       }
     };
 
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMenuOpen(false);
+    };
+
     if (isMenuOpen) {
       window.addEventListener('scroll', handleScroll);
       document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscape);
     }
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
     };
   }, [isMenuOpen]);
-
-  const navLinks = [
-    { name: 'Inicio', type: 'page', page: 'home', href: '#hero' },
-    { name: 'Biografía', type: 'page', page: 'biography', href: '#bio' },
-    { name: 'Catálogo', type: 'anchor', href: '#work' },
-    { name: 'Sincronización', type: 'anchor', href: '#spotify-showcase' },
-    { name: 'Prensa', type: 'anchor', href: '#press' },
-    { name: 'Créditos', type: 'anchor', href: '#credits' },
-    { name: 'Contacto', type: 'anchor', href: '#contact' },
-  ];
 
   const handleLinkClick = (link: any) => {
     setIsMenuOpen(false);
@@ -74,7 +71,11 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
         
         {/* Logo oficial */}
         <div className="flex items-center gap-4 group">
-          <button onClick={() => onNavigate('home')} className="relative block">
+          <button
+            onClick={() => onNavigate('home')}
+            className="relative block"
+            aria-label="Ir al inicio"
+          >
             <img 
               src="https://hostedimages-cdn.aweber-static.com/MjM0MTQ0NQ==/thumbnail/188302f5ca5241bd9111d44862883f63.png" 
               alt="ABRINAY LOGO" 
@@ -85,8 +86,18 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
 
         {/* Action Center */}
         <div className="flex items-center gap-6" ref={menuRef}>
+          {/* CTA Persistente - Fase 7 */}
+          <a
+            href="mailto:abrinay1997@gmail.com"
+            className="hidden md:block px-6 py-2 border border-[#cc4e00]/50 text-[#cc4e00] text-[10px] tracking-[0.2em] uppercase font-bold hover:bg-[#cc4e00] hover:text-black transition-all duration-500 rounded-full"
+          >
+            Contacto
+          </a>
+
           <button 
             onClick={toggleMenu}
+            aria-expanded={isMenuOpen}
+            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             className={`group relative flex items-center justify-center w-12 h-12 rounded-full border transition-all duration-500 z-[210] ${
               isMenuOpen ? 'border-[#cc4e00] bg-[#cc4e00]/10' : 'border-white/10 bg-white/5'
             }`}
@@ -108,7 +119,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
               </div>
               
               <ul className="flex flex-col gap-5">
-                {navLinks.map((link) => (
+                {NAV_LINKS.map((link) => (
                   <li key={link.name}>
                     <button 
                       onClick={() => handleLinkClick(link)}

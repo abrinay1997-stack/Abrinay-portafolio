@@ -1,43 +1,6 @@
 
 import React from 'react';
-
-const PRESS_ITEMS = [
-  {
-    source: 'MEDIUM',
-    title: 'PETER: NI SOLDADO, NI CIVIL, NI TRAIDOR: UN CORTO QUE REVIVE LA MEMORIA DEL 20 DE DICIEMBRE',
-    date: 'MEMORIA HISTÓRICA',
-    url: 'https://medium.com/@Culturizandote/peter-ni-soldado-ni-civil-ni-traidor-un-corto-que-revive-la-memoria-del-20-de-diciembre-95f91dd06108',
-    image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*SI6Yg7z7wYeX_xHvT5axSg.jpeg'
-  },
-  {
-    source: 'METRO LIBRE',
-    title: 'ASAMBLEA RINDE HOMENAJE A LAS VÍCTIMAS DEL 20 DE DICIEMBRE',
-    date: 'NOTICIA / CINE',
-    url: 'https://www.metrolibre.com/nacionales/asamblea-rinde-homenaje-a-las-victimas-del-20-de-diciembre-MM18502538',
-    image: 'https://www.metrolibre.com/binrepository/855x570/0c0/855d550/none/83989904/QFYX/img-20251219-wa0012_101-12130895_20251219173811.jpg'
-  },
-  {
-    source: 'TELEMETRO',
-    title: 'GANADOR MANDA TU PISTA: PRIMERA TEMPORADA',
-    date: 'RECONOCIMIENTO',
-    url: 'https://www.telemetro.com/manda-tu-pista/programas/manda-tu-pista-abrinay-es-el-ganador-la-1era-temporda-n5336498',
-    image: 'https://media.telemetro.com/p/7609770dd3515f41f77001a8d63d9b02/adjuntos/311/imagenes/016/603/0016603507/captura-pantalla-931png.png'
-  },
-  {
-    source: 'TELEMETRO',
-    title: 'PERFIL: 100% DEDICADO A LA MÚSICA',
-    date: 'ENTREVISTA',
-    url: 'https://www.telemetro.com/manda-tu-pista/programas/manda-tu-pista-abrinay-100-dedicado-la-musica-n5266487',
-    image: 'https://media.telemetro.com/p/177113a49019670cdbc4ac328086c69f/adjuntos/311/imagenes/014/456/0014456882/210548699_917136485516520_1723299160106766237_n-1jpg.jpg'
-  },
-  {
-    source: 'EL SIGLO',
-    title: 'DOS ESTACIONES: DIÁLOGOS ENTRE EL CLIMA Y LA HUMANIDAD',
-    date: 'REPORTAJE',
-    url: 'https://elsiglo.com.pa/farandula/dos-estaciones-dialogos-entre-el-clima-y-la-humanidad-MK15792259',
-    image: 'https://elsiglo.com.pa/binrepository/700x466/0c36/700d393/none/275766432/CFFD/danza1_181-11206189_20250905134932.jpg'
-  }
-];
+import { PRESS_ITEMS } from '../content/siteContent';
 
 const PressArchive: React.FC = () => {
   return (
@@ -66,6 +29,8 @@ const PressArchive: React.FC = () => {
                 src={item.image} 
                 alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-[4s] group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-black/70 group-hover:bg-black/30 transition-colors duration-500"></div>
               

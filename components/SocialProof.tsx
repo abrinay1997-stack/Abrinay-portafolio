@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { SPOTIFY_TRACKS } from '../content/siteContent';
 
 // --- Sub-componentes de Iconos ---
 const ChevronLeftIcon = () => (
@@ -21,27 +22,9 @@ const SectionTitle = ({ children }: { children?: React.ReactNode }) => (
     </h2>
 );
 
-// --- Datos de los testimonios ---
-const spotifyTracks = [
-    { id: "5tuxq8IrJspC0eCeB3aOTm", artist: "RichardLove / Prod. Abrinay" },
-    { id: "1y9mnArBtexJx9WUuoVKKK", artist: "Avalon Davies / Prod. Abrinay" },
-    { id: "6jnSWHSPerX58A6Rs7U7tJ", artist: "RichardLove / Sync. Abrinay" },
-    { id: "14anQ0yuu7PLwakdzleVsh", artist: "Abrinay Studios" },
-    { id: "6oykdY0Ra3JsgSQjsytYpn", artist: "Abrinay - Original Master" },
-    { id: "7exDUiOuHPt51xdldD5Eql", artist: "Abrinay - Atmospheric" },
-    { id: "4sfCjMiXfz29zzA9Vdcnvc", artist: "Urban Archives" },
-    { id: "42YcC0seZbUwcejQu0166M", artist: "Production Selection" },
-    { id: "1Ej6ek0BCh8lmLVrldyGXf", artist: "Independent Works" },
-    { id: "6twwPRrrY6L20ifK0zi8hm", artist: "BukoFlow Sessions" },
-    { id: "0x8FCr0F2ariTYXvh8UlYN", artist: "The Orchard Master" },
-    { id: "42kyjeRgca5cVN6y36SVUA", artist: "Sync Library" },
-    { id: "1v1imOjDTa0fW9CTVpLG9k", artist: "High Fidelity Archives" },
-    { id: "1IgaDmiim7i6eKSyJsdz7e", artist: "Abrinay - Ending" }
-];
-
 export const SocialProof = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const length = spotifyTracks.length;
+    const length = SPOTIFY_TRACKS.length;
 
     // Defined before useEffect for clarity
     const nextSlide = () => {
@@ -72,7 +55,7 @@ export const SocialProof = () => {
                 <div className="relative w-full h-[400px] flex items-center justify-center mt-10" style={{ perspective: '1200px' }}>
                     
                     <div className="relative w-full h-full flex justify-center items-center" style={{ transformStyle: 'preserve-3d' }}>
-                         {spotifyTracks.map((item, index) => {
+                         {SPOTIFY_TRACKS.map((item, index) => {
                              let offset = (index - currentIndex + length) % length;
                              if (offset > length / 2) {
                                  offset -= length;

@@ -1,15 +1,6 @@
 
 import React from 'react';
-import { Credit } from '../types';
-
-const CREDITS: Credit[] = [
-  { year: 2025, role: 'Score Original', project: '"Peter: ni soldado, ni civil, ni traidor" (Largometraje)' },
-  { year: 2024, role: 'Score / Diseño Sonoro', project: '"Cuando Florezcan los Guayacanes" (Cine)' },
-  { year: 2024, role: 'Sync & Distribution', project: 'Sony Music / The Orchard (Global Catalog)' },
-  { year: 2024, role: 'Catalog Management', project: 'Symphonic Distribution (Master Records)' },
-  { year: 2024, role: 'Paisajes Sonoros', project: '"Dos Estaciones" (Documental)' },
-  { year: 2022, role: 'Ganador / Productor', project: 'Manda tu Pista (Reality Telemetro)' },
-];
+import { CREDITS } from '../content/siteContent';
 
 const Credits: React.FC = () => {
   return (
