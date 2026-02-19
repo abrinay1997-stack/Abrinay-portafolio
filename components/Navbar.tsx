@@ -103,8 +103,8 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
           }`}>
             <div className="flex flex-col gap-8">
               <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                <div className="text-[7px] text-[#cc4e00] tracking-[0.6em] uppercase font-mono font-black">Navegación</div>
-                <div className="text-[7px] text-white/20 font-mono tracking-widest">v2.1.5</div>
+                <div className="text-[11px] text-[#cc4e00] tracking-[0.3em] uppercase font-mono font-black">Navegación</div>
+                <div className="text-[11px] text-white/30 font-mono tracking-[0.2em]">v2.1.5</div>
               </div>
               
               <ul className="flex flex-col gap-5">
@@ -112,7 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
                   <li key={link.name}>
                     <button 
                       onClick={() => handleLinkClick(link)}
-                      className="group/link flex items-center justify-between w-full text-left text-[10px] tracking-[0.5em] text-white/40 hover:text-white transition-all uppercase font-bold"
+                      className="group/link flex items-center justify-between w-full text-left text-[12px] tracking-[0.22em] text-white/70 hover:text-white transition-all uppercase font-bold"
                     >
                       <span>{link.name}</span>
                       <span className="w-0 group-hover/link:w-4 h-[1px] bg-[#cc4e00] transition-all"></span>
@@ -124,7 +124,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
               <div className="pt-4 border-t border-white/5">
                 <a 
                   href="mailto:abrinay1997@gmail.com"
-                  className="block text-center text-[9px] bg-[#cc4e00] text-black py-4 tracking-[0.4em] uppercase font-black hover:bg-white transition-all"
+                  className="block text-center text-[12px] bg-[#cc4e00] text-black py-4 tracking-[0.2em] uppercase font-black hover:bg-white transition-all"
                 >
                   Mensaje_Directo
                 </a>

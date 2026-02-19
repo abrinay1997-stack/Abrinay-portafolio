@@ -67,7 +67,7 @@ export const SocialProof = () => {
         <section id="spotify-showcase" className="w-full pt-32 pb-40 overflow-hidden bg-black border-y border-white/5">
             <div className="max-w-6xl mx-auto px-5">
                 <SectionTitle>Sincronización Digital</SectionTitle>
-                <p className="text-center text-[10px] tracking-[0.8em] uppercase text-white/20 mb-16 font-mono">Archive_Access // Global_Distribution</p>
+                <p className="text-center text-[12px] tracking-[0.22em] uppercase text-white/60 mb-16 font-mono">Archive_Access // Global_Distribution</p>
                 
                 <div className="relative w-full h-[400px] flex items-center justify-center mt-10" style={{ perspective: '1200px' }}>
                     
@@ -119,7 +119,7 @@ export const SocialProof = () => {
                                         )}
                                     </div>
                                     
-                                    <p className={`text-center font-mono font-bold text-[9px] tracking-[0.5em] uppercase mt-8 transition-all duration-500 ${offset === 0 ? 'text-[#cc4e00] translate-y-0 opacity-100' : 'text-zinc-800 translate-y-4 opacity-0'}`}>
+                                    <p className={`text-center font-mono font-bold text-[12px] tracking-[0.18em] uppercase mt-8 transition-all duration-500 ${offset === 0 ? 'text-[#cc4e00] translate-y-0 opacity-100' : 'text-zinc-800 translate-y-4 opacity-0'}`}>
                                         {item.artist}
                                     </p>
                                 </div>
