@@ -21,7 +21,7 @@ const Biography: React.FC = () => {
 
           <div className="space-y-12 text-white/40 text-[14px] md:text-[16px] leading-[1.8] tracking-[0.05em] font-mono">
             {BIOGRAPHY_CONTENT.paragraphs.map((p, i) => (
-              <p key={i} className={`animate-in slide-in-from-bottom duration-700 ${i === 2 ? 'border-l border-white/10 pl-8 italic text-white/60' : ''}`} style={{ animationDelay: `${(i+1)*100}ms` }}>
+              <p key={i} className={`reveal ${i === 2 ? 'border-l border-white/10 pl-8 italic text-white/60' : ''}`} style={{ transitionDelay: `${(i+1)*100}ms` }}>
                 {p}
               </p>
             ))}
@@ -42,7 +42,7 @@ const Biography: React.FC = () => {
           <div className="absolute -top-10 -right-10 text-[12px] text-white/35 font-mono uppercase vertical-text tracking-[1.2em] group-hover:text-[#cc4e00]/40 transition-colors">
             SYST_MONITOR_ACTIVE
           </div>
-          <div className="glass-card p-12 md:p-16 relative z-10 space-y-16 rounded-sm">
+          <div className="glass-card p-12 md:p-16 relative z-10 space-y-16 rounded-sm reveal">
             <h3 className="text-[10px] text-white/30 tracking-[0.3em] uppercase font-mono border-b border-white/5 pb-6 flex justify-between items-center">
               <span>HITOS_CINEMATOGRÁFICOS //</span>
               <div className="flex gap-1">
@@ -53,7 +53,7 @@ const Biography: React.FC = () => {
             
             <div className="space-y-12">
               {BIOGRAPHY_CONTENT.milestones.map((m, i) => (
-                <div key={i} className="flex gap-10 items-start group/item">
+                <div key={i} className="flex gap-10 items-start group/item reveal" style={{ transitionDelay: `${i * 150}ms` }}>
                   <span className="text-[#cc4e00] text-xs font-mono pt-1 tracking-tighter">[{m.year}]</span>
                   <div>
                     <h4 className="text-white text-sm tracking-[0.2em] uppercase mb-3 group-hover/item:text-[#cc4e00] transition-colors">{m.title}</h4>

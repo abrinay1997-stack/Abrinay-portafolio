@@ -8,10 +8,13 @@ import PressArchive from './components/PressArchive';
 import Credits from './components/Credits';
 import Footer from './components/Footer';
 import SocialProof from './components/SocialProof';
+import { useReveal } from './hooks/useReveal';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [currentPage, setCurrentPage] = useState<'home' | 'biography'>('home');
+  const [pageTransition, setPageTransition] = useState(false);
+  useReveal(currentPage);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -25,14 +28,18 @@ const App: React.FC = () => {
   }, [currentPage]);
 
   const navigateTo = (page: 'home' | 'biography') => {
-    setCurrentPage(page);
+    setPageTransition(true);
+    setTimeout(() => {
+      setCurrentPage(page);
+      setPageTransition(false);
+    }, 400);
   };
 
   return (
     <div className="min-h-screen bg-[#000000] text-[#888] selection:bg-[#cc4e00] selection:text-black">
       <Navbar isScrolled={scrolled} onNavigate={navigateTo} currentPage={currentPage} />
       
-      <main className="transition-all duration-1000">
+      <main className={`transition-all duration-1000 ${pageTransition ? 'page-fade-enter' : 'page-fade-active'}`}>
         {currentPage === 'home' ? (
           <>
             <section id="hero">
