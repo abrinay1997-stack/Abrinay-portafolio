@@ -16,7 +16,7 @@ const ChevronRightIcon = () => (
 
 // Define SectionTitle with optional children to avoid strict TS errors in certain environments
 const SectionTitle = ({ children }: { children?: React.ReactNode }) => (
-    <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-wider uppercase bg-gradient-to-r from-white via-[#cc4e00] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_4s_linear_infinite] text-center font-cinematic">
+    <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-wider uppercase bg-gradient-to-r from-white via-[#cc4e00] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_4s_linear_infinite] motion-reduce:animate-none text-center font-cinematic">
         {children}
     </h2>
 );
@@ -41,6 +41,7 @@ const spotifyTracks = [
 
 export const SocialProof = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
     const length = spotifyTracks.length;
 
     // Defined before useEffect for clarity
@@ -57,17 +58,29 @@ export const SocialProof = () => {
     };
 
     useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+
+        updatePreference();
+        mediaQuery.addEventListener('change', updatePreference);
+
+        return () => mediaQuery.removeEventListener('change', updatePreference);
+    }, []);
+
+    useEffect(() => {
+        if (prefersReducedMotion) return;
+
         const interval = setInterval(() => {
             nextSlide();
         }, 6000); 
         return () => clearInterval(interval);
-    }, [currentIndex]);
+    }, [currentIndex, prefersReducedMotion]);
 
     return (
         <section id="spotify-showcase" className="w-full pt-32 pb-40 overflow-hidden bg-black border-y border-white/5">
             <div className="max-w-6xl mx-auto px-5">
                 <SectionTitle>Sincronización Digital</SectionTitle>
-                <p className="text-center text-[10px] tracking-[0.8em] uppercase text-white/20 mb-16 font-mono">Archive_Access // Global_Distribution</p>
+                <p className="text-center text-[12px] tracking-[0.22em] uppercase text-white/60 mb-16 font-mono">Archive_Access // Global_Distribution</p>
                 
                 <div className="relative w-full h-[400px] flex items-center justify-center mt-10" style={{ perspective: '1200px' }}>
                     
@@ -94,7 +107,16 @@ export const SocialProof = () => {
                                 <div
                                     key={index}
                                     onClick={() => handleDotClick(index)}
-                                    className="absolute w-[280px] sm:w-[320px] h-[352px] transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] cursor-pointer"
+                                    onKeyDown={(event) => {
+                                        if (event.key === 'Enter' || event.key === ' ') {
+                                            event.preventDefault();
+                                            handleDotClick(index);
+                                        }
+                                    }}
+                                    tabIndex={offset === 0 ? 0 : -1}
+                                    role="button"
+                                    aria-label={`Seleccionar pista ${index + 1}: ${item.artist}`}
+                                    className="absolute w-[280px] sm:w-[320px] h-[352px] transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] motion-reduce:transition-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-[12px]"
                                     style={{
                                         transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
                                         opacity: opacity,
@@ -119,7 +141,7 @@ export const SocialProof = () => {
                                         )}
                                     </div>
                                     
-                                    <p className={`text-center font-mono font-bold text-[9px] tracking-[0.5em] uppercase mt-8 transition-all duration-500 ${offset === 0 ? 'text-[#cc4e00] translate-y-0 opacity-100' : 'text-zinc-800 translate-y-4 opacity-0'}`}>
+                                    <p className={`text-center font-mono font-bold text-[12px] tracking-[0.18em] uppercase mt-8 transition-all duration-500 ${offset === 0 ? 'text-[#cc4e00] translate-y-0 opacity-100' : 'text-zinc-800 translate-y-4 opacity-0'}`}>
                                         {item.artist}
                                     </p>
                                 </div>
@@ -129,14 +151,14 @@ export const SocialProof = () => {
                     
                     <button 
                         onClick={prevSlide} 
-                        className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-4 z-[110] p-4 bg-black/40 backdrop-blur-md border border-white/5 rounded-full text-white/50 hover:text-[#cc4e00] hover:border-[#cc4e00]/30 hover:scale-110 transition-all duration-300 shadow-xl" 
+                        className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-4 z-[110] p-4 bg-black/40 backdrop-blur-md border border-white/5 rounded-full text-white/50 hover:text-[#cc4e00] hover:border-[#cc4e00]/30 hover:scale-110 transition-all duration-300 shadow-xl motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-black" 
                         aria-label="Anterior"
                     >
                         <ChevronLeftIcon />
                     </button>
                     <button 
                         onClick={nextSlide} 
-                        className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-4 z-[110] p-4 bg-black/40 backdrop-blur-md border border-white/5 rounded-full text-white/50 hover:text-[#cc4e00] hover:border-[#cc4e00]/30 hover:scale-110 transition-all duration-300 shadow-xl" 
+                        className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-4 z-[110] p-4 bg-black/40 backdrop-blur-md border border-white/5 rounded-full text-white/50 hover:text-[#cc4e00] hover:border-[#cc4e00]/30 hover:scale-110 transition-all duration-300 shadow-xl motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-black" 
                         aria-label="Siguiente"
                     >
                         <ChevronRightIcon />

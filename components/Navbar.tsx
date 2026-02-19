@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 
 interface NavbarProps {
@@ -10,14 +9,21 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const menuId = 'main-navigation-menu';
 
   useEffect(() => {
     const handleScroll = () => {
       if (isMenuOpen) setIsMenuOpen(false);
     };
-    
+
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
         setIsMenuOpen(false);
       }
     };
@@ -25,11 +31,13 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
     if (isMenuOpen) {
       window.addEventListener('scroll', handleScroll);
       document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscape);
     }
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
     };
   }, [isMenuOpen]);
 
@@ -66,28 +74,52 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const goToContact = () => {
+    if (currentPage !== 'home') {
+      onNavigate('home');
+      setTimeout(() => {
+        const el = document.querySelector('#contact');
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      return;
+    }
+
+    const el = document.querySelector('#contact');
+    el?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav className={`fixed top-0 w-full z-[200] transition-all duration-700 px-6 md:px-12 ${
       isScrolled ? 'py-4 bg-[#050505]/95 border-b border-white/5 backdrop-blur-xl' : 'py-8 bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center relative">
-        
-        {/* Logo oficial */}
         <div className="flex items-center gap-4 group">
-          <button onClick={() => onNavigate('home')} className="relative block">
-            <img 
-              src="https://hostedimages-cdn.aweber-static.com/MjM0MTQ0NQ==/thumbnail/188302f5ca5241bd9111d44862883f63.png" 
-              alt="ABRINAY LOGO" 
+          <button
+            onClick={() => onNavigate('home')}
+            className="relative block rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
+            aria-label="Ir al inicio"
+          >
+            <img
+              src="https://hostedimages-cdn.aweber-static.com/MjM0MTQ0NQ==/thumbnail/188302f5ca5241bd9111d44862883f63.png"
+              alt="ABRINAY LOGO"
               className="h-10 md:h-12 w-auto object-contain brightness-110 group-hover:drop-shadow-[0_0_15px_rgba(204,78,0,0.5)] transition-all duration-500"
             />
           </button>
         </div>
 
-        {/* Action Center */}
-        <div className="flex items-center gap-6" ref={menuRef}>
-          <button 
+        <div className="flex items-center gap-4" ref={menuRef}>
+          <button
+            onClick={goToContact}
+            className="hidden md:block px-5 py-3 bg-[#cc4e00] text-black text-[11px] tracking-[0.18em] uppercase font-black hover:bg-white transition-all duration-300 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
+          >
+            Solicitar propuesta
+          </button>
+          <button
             onClick={toggleMenu}
-            className={`group relative flex items-center justify-center w-12 h-12 rounded-full border transition-all duration-500 z-[210] ${
+            aria-expanded={isMenuOpen}
+            aria-controls={menuId}
+            aria-label={isMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            className={`group relative flex items-center justify-center w-12 h-12 rounded-full border transition-all duration-500 z-[210] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${
               isMenuOpen ? 'border-[#cc4e00] bg-[#cc4e00]/10' : 'border-white/10 bg-white/5'
             }`}
           >
@@ -98,21 +130,26 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
             </div>
           </button>
 
-          <div className={`absolute top-16 right-0 w-72 bg-[#0a0a0a] border border-[#cc4e00]/30 backdrop-blur-3xl p-8 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] origin-top-right z-[200] ${
-            isMenuOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'
-          }`}>
+          <div
+            id={menuId}
+            role="menu"
+            aria-hidden={!isMenuOpen}
+            className={`absolute top-16 right-0 w-72 bg-[#0a0a0a] border border-[#cc4e00]/30 backdrop-blur-3xl p-8 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] origin-top-right z-[200] ${
+              isMenuOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-4 pointer-events-none'
+            }`}
+          >
             <div className="flex flex-col gap-8">
               <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                <div className="text-[7px] text-[#cc4e00] tracking-[0.6em] uppercase font-mono font-black">Navegación</div>
-                <div className="text-[7px] text-white/20 font-mono tracking-widest">v2.1.5</div>
+                <div className="text-[11px] text-[#cc4e00] tracking-[0.3em] uppercase font-mono font-black">Navegación</div>
+                <div className="text-[11px] text-white/30 font-mono tracking-[0.2em]">v2.1.5</div>
               </div>
-              
+
               <ul className="flex flex-col gap-5">
                 {navLinks.map((link) => (
                   <li key={link.name}>
-                    <button 
+                    <button
                       onClick={() => handleLinkClick(link)}
-                      className="group/link flex items-center justify-between w-full text-left text-[10px] tracking-[0.5em] text-white/40 hover:text-white transition-all uppercase font-bold"
+                      className="group/link flex items-center justify-between w-full text-left text-[12px] tracking-[0.22em] text-white/70 hover:text-white transition-all uppercase font-bold rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                     >
                       <span>{link.name}</span>
                       <span className="w-0 group-hover/link:w-4 h-[1px] bg-[#cc4e00] transition-all"></span>
@@ -122,11 +159,11 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
               </ul>
 
               <div className="pt-4 border-t border-white/5">
-                <a 
+                <a
                   href="mailto:abrinay1997@gmail.com"
-                  className="block text-center text-[9px] bg-[#cc4e00] text-black py-4 tracking-[0.4em] uppercase font-black hover:bg-white transition-all"
+                  className="block text-center text-[12px] bg-[#cc4e00] text-black py-4 tracking-[0.2em] uppercase font-black hover:bg-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                 >
-                  Mensaje_Directo
+                  Solicitar_Propuesta
                 </a>
               </div>
             </div>

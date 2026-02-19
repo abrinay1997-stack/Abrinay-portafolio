@@ -11,14 +11,14 @@ const Biography: React.FC = () => {
               <h2 className="font-cinematic text-4xl md:text-7xl font-bold text-white uppercase tracking-tighter leading-none mb-4">
                 ABRINAY<br />
               </h2>
-              <p className="text-[10px] text-[#cc4e00] tracking-[0.6em] uppercase mt-4 font-mono font-black">Productor & Diseñador Sonoro</p>
+              <p className="text-[12px] text-[#cc4e00] tracking-[0.3em] uppercase mt-4 font-mono font-black">Productor & Diseñador Sonoro</p>
             </div>
-            <div className="text-[9px] text-white/10 font-mono pt-2 hidden md:block">
+            <div className="text-[12px] text-white/35 font-mono pt-2 hidden md:block">
               AUTH_INDEX: AB_2009_BOG
             </div>
           </div>
 
-          <div className="space-y-12 text-white/60 text-[15px] md:text-[18px] leading-[1.8] tracking-widest uppercase font-mono">
+          <div className="space-y-12 text-white/60 text-[15px] md:text-[18px] leading-[1.8] tracking-[0.08em] uppercase font-mono">
             <p className="animate-in slide-in-from-bottom duration-700 delay-100">
               Brian Joel Carvajal Mahecha (Abrinay) es el arquitecto sonoro detrás de una visión que fusiona el rap, la poesía y el diseño de audio para cine. Su carrera despegó en 2009 en Bogotá, evolucionando rápidamente hacia la independencia técnica absoluta.
             </p>
@@ -33,27 +33,27 @@ const Biography: React.FC = () => {
           <div className="pt-12 border-t border-white/5 grid grid-cols-2 gap-12">
             <div className="relative group">
               <div className="absolute -left-6 top-0 w-1 h-full bg-[#cc4e00]/0 group-hover:bg-[#cc4e00] transition-all"></div>
-              <span className="block text-[10px] text-white/20 tracking-[0.4em] uppercase mb-3">Establecimiento</span>
+              <span className="block text-[12px] text-white/50 tracking-[0.15em] uppercase mb-3">Establecimiento</span>
               <span className="text-2xl text-white font-mono font-bold tracking-tighter">EST_2011</span>
             </div>
             <div className="relative group">
               <div className="absolute -left-6 top-0 w-1 h-full bg-[#cc4e00]/0 group-hover:bg-[#cc4e00] transition-all"></div>
-              <span className="block text-[10px] text-white/20 tracking-[0.4em] uppercase mb-3">Audiencia Global</span>
+              <span className="block text-[12px] text-white/50 tracking-[0.15em] uppercase mb-3">Audiencia Global</span>
               <span className="text-2xl text-white font-mono font-bold tracking-tighter">+90K_STRM</span>
             </div>
           </div>
         </div>
 
         <div className="relative group">
-          <div className="absolute -top-10 -right-10 text-[9px] text-white/10 font-mono uppercase vertical-text tracking-[1.2em] group-hover:text-[#cc4e00]/40 transition-colors">
+          <div className="absolute -top-10 -right-10 text-[12px] text-white/35 font-mono uppercase vertical-text tracking-[1.2em] group-hover:text-[#cc4e00]/40 transition-colors">
             SYST_MONITOR_ACTIVE
           </div>
           <div className="glass p-12 md:p-16 relative z-10 space-y-16 border border-white/10 shadow-2xl bg-black/40">
-            <h3 className="text-xs text-white/80 tracking-[0.5em] uppercase font-bold border-b border-white/10 pb-6 flex justify-between items-center">
+            <h3 className="text-xs text-white/80 tracking-[0.1em] uppercase font-bold border-b border-white/10 pb-6 flex justify-between items-center">
               <span>HITOS CINEMATOGRÁFICOS</span>
               <div className="flex gap-1">
                  <div className="w-1.5 h-1.5 rounded-full bg-[#cc4e00] animate-pulse"></div>
-                 <span className="text-[8px] text-[#cc4e00]">SIGNAL</span>
+                 <span className="text-[11px] text-[#cc4e00]">SIGNAL</span>
               </div>
             </h3>
             
@@ -61,24 +61,24 @@ const Biography: React.FC = () => {
               <div className="flex gap-10 items-start group/item">
                 <span className="text-[#cc4e00] text-sm font-bold font-mono pt-1">2014</span>
                 <div>
-                  <h4 className="text-white text-base tracking-[0.2em] uppercase mb-3 group-hover/item:text-[#cc4e00] transition-colors">BukoFlow Records</h4>
-                  <p className="text-[11px] text-white/30 uppercase tracking-[0.15em] leading-[1.8]">Estructuración de licencias comerciales y sync licensing para medios digitales.</p>
+                  <h4 className="text-white text-base tracking-[0.1em] uppercase mb-3 group-hover/item:text-[#cc4e00] transition-colors">BukoFlow Records</h4>
+                  <p className="text-[13px] text-white/70 uppercase tracking-[0.06em] leading-[1.8]">Estructuración de licencias comerciales y sync licensing para medios digitales.</p>
                 </div>
               </div>
 
               <div className="flex gap-10 items-start group/item">
                 <span className="text-[#cc4e00] text-sm font-bold font-mono pt-1">2022</span>
                 <div>
-                  <h4 className="text-white text-base tracking-[0.2em] uppercase mb-3 group-hover/item:text-[#cc4e00] transition-colors">Sony Music / Orchard</h4>
-                  <p className="text-[11px] text-white/30 uppercase tracking-[0.15em] leading-[1.8]">Expansión de catálogo maestro y sincronización global de obras originales.</p>
+                  <h4 className="text-white text-base tracking-[0.1em] uppercase mb-3 group-hover/item:text-[#cc4e00] transition-colors">Sony Music / Orchard</h4>
+                  <p className="text-[13px] text-white/70 uppercase tracking-[0.06em] leading-[1.8]">Expansión de catálogo maestro y sincronización global de obras originales.</p>
                 </div>
               </div>
 
               <div className="flex gap-10 items-start group/item">
                 <span className="text-[#cc4e00] text-sm font-bold font-mono pt-1">2024</span>
                 <div>
-                  <h4 className="text-white text-base tracking-[0.2em] uppercase mb-3 group-hover/item:text-[#cc4e00] transition-colors">Peter (Cine)</h4>
-                  <p className="text-[11px] text-white/30 uppercase tracking-[0.15em] leading-[1.8]">Composición original para el largometraje documental sobre la soberanía.</p>
+                  <h4 className="text-white text-base tracking-[0.1em] uppercase mb-3 group-hover/item:text-[#cc4e00] transition-colors">Peter (Cine)</h4>
+                  <p className="text-[13px] text-white/70 uppercase tracking-[0.06em] leading-[1.8]">Composición original para el largometraje documental sobre la soberanía.</p>
                 </div>
               </div>
             </div>
