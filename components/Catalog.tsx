@@ -74,7 +74,7 @@ const Catalog: React.FC = () => {
           <h2 className="font-cinematic text-3xl md:text-5xl font-bold text-white uppercase tracking-[0.2em]">Obras & Catálogo</h2>
           <p className="text-xs text-[#cc4e00] tracking-[0.4em] uppercase mt-2 font-bold">Producción Discográfica y Cine</p>
         </div>
-        <div className="flex gap-8 text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2 font-bold">
+        <div className="flex gap-8 text-[12px] tracking-[0.12em] uppercase text-white/70 mb-2 font-bold">
           <button onClick={() => setFilter('all')} className={`${filter === 'all' ? 'text-[#cc4e00]' : ''} hover:text-white transition-colors`}>Todo</button>
           <button onClick={() => setFilter('film')} className={`${filter === 'film' ? 'text-[#cc4e00]' : ''} hover:text-white transition-colors`}>Cine & Documental</button>
           <button onClick={() => setFilter('prod')} className={`${filter === 'prod' ? 'text-[#cc4e00]' : ''} hover:text-white transition-colors`}>Producción / EP</button>
@@ -97,8 +97,8 @@ const Catalog: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500"></div>
               
               <div className="absolute top-4 left-4 flex gap-2">
-                <span className="bg-black/80 px-2 py-1 text-[8px] text-white/40 border border-white/5 font-mono">CODE: {project.id}</span>
-                <span className="bg-black/80 px-2 py-1 text-[8px] text-[#cc4e00]/80 border border-[#cc4e00]/10 font-mono">MASTER</span>
+                <span className="bg-black/80 px-2 py-1 text-[11px] text-white/70 border border-white/5 font-mono">CODE: {project.id}</span>
+                <span className="bg-black/80 px-2 py-1 text-[11px] text-[#cc4e00] border border-[#cc4e00]/10 font-mono">MASTER</span>
               </div>
 
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -113,14 +113,14 @@ const Catalog: React.FC = () => {
               </div>
 
               <div className="absolute inset-0 p-8 flex flex-col justify-end pointer-events-none">
-                <span className="text-[9px] text-[#cc4e00] font-bold tracking-[0.4em] mb-3 uppercase">
+                <span className="text-[11px] text-[#cc4e00] font-bold tracking-[0.2em] mb-3 uppercase">
                   {project.genre}
                 </span>
                 <h3 className="text-base font-bold text-white tracking-[0.05em] uppercase leading-tight mb-4">
                   {project.title}
                 </h3>
                 <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500">
-                  <p className="text-[11px] text-white/50 tracking-wider uppercase leading-relaxed font-light">
+                  <p className="text-[13px] text-white/70 tracking-[0.08em] uppercase leading-relaxed font-light">
                     {project.description}
                   </p>
                 </div>

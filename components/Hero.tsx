@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
       <div className="relative z-20 text-center px-6 max-w-5xl">
         <div className="mb-12 opacity-50 flex items-center justify-center gap-4">
            <div className="w-8 h-[1px] bg-[#cc4e00]"></div>
-           <span className="text-[8px] tracking-[1.2em] text-white uppercase font-mono">Master</span>
+           <span className="text-[11px] tracking-[0.5em] text-white uppercase font-mono">Master</span>
            <div className="w-8 h-[1px] bg-[#cc4e00]"></div>
         </div>
         
@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
           ABRINAY VOID
         </h1>
         
-        <p className="text-white/40 text-[10px] md:text-[12px] tracking-[0.8em] uppercase max-w-2xl mx-auto leading-relaxed font-bold">
+        <p className="text-white/50 text-[12px] md:text-[13px] tracking-[0.35em] uppercase max-w-2xl mx-auto leading-relaxed font-bold">
           Diseño Sonoro | Composición | Grabacion | Mezcla | Mastering
         </p>
       </div>
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
           <div className="bar w-[1px] bg-[#cc4e00]" style={{animationDuration: '0.9s'}}></div>
           <div className="bar w-[1px] bg-[#cc4e00]" style={{animationDuration: '0.6s'}}></div>
         </div>
-        <div className="text-[8px] text-white font-mono tracking-[0.6em] uppercase">Estudio Independiente / Bogotá - PTY</div>
+        <div className="text-[11px] text-white/80 font-mono tracking-[0.25em] uppercase">Estudio Independiente / Bogotá - PTY</div>
       </div>
     </div>
   );

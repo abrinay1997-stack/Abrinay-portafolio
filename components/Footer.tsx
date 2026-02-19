@@ -76,14 +76,14 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           >
             <button 
               onClick={() => setActiveModal(null)}
-              className="absolute top-6 right-6 text-white/40 hover:text-[#cc4e00] transition-colors uppercase text-[10px] font-mono tracking-widest"
+              className="absolute top-6 right-6 text-white/40 hover:text-[#cc4e00] transition-colors uppercase text-[12px] font-mono tracking-[0.2em]"
             >
               Cerrar [X]
             </button>
-            <h3 className="font-cinematic text-lg text-white mb-8 tracking-[0.3em] uppercase border-l-2 border-[#cc4e00] pl-6">
+            <h3 className="font-cinematic text-lg text-white mb-8 tracking-[0.15em] uppercase border-l-2 border-[#cc4e00] pl-6">
               {LEGAL_TEXTS[activeModal].title}
             </h3>
-            <p className="text-[11px] text-white/60 leading-loose tracking-[0.1em] uppercase font-mono">
+            <p className="text-[13px] text-white/75 leading-loose tracking-[0.04em] uppercase font-mono">
               {LEGAL_TEXTS[activeModal].content}
             </p>
           </div>
@@ -106,14 +106,14 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span className="text-white/40 group-hover:text-[#cc4e00] transition-colors duration-500">
                 {link.svg}
               </span>
-              <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[7px] font-mono tracking-[0.4em] text-[#cc4e00] opacity-0 group-hover:opacity-100 transition-all duration-500 uppercase whitespace-nowrap">
+              <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[11px] font-mono tracking-[0.15em] text-[#cc4e00] opacity-0 group-hover:opacity-100 transition-all duration-500 uppercase whitespace-nowrap">
                 {link.name}
               </span>
             </a>
           ))}
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-[9px] text-white/40 uppercase tracking-[0.8em] gap-12 pt-20 border-t border-white/10">
+        <div className="flex flex-col md:flex-row justify-between items-center text-[12px] text-white/60 uppercase tracking-[0.2em] gap-12 pt-20 border-t border-white/10">
           <p className="font-bold tracking-widest cursor-pointer hover:text-white transition-colors" onClick={() => handlePageLink('home')}>© 2026 ABRINAY | BUKOFLOW LLC.</p>
           <div className="flex gap-12 md:gap-16 font-bold">
              <button onClick={() => handlePageLink('biography')} className="hover:text-[#cc4e00] transition-colors duration-300">Biografía</button>
