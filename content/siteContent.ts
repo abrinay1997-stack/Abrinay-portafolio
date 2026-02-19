@@ -12,7 +12,7 @@ export const NAV_LINKS = [
 ];
 
 export const HERO_CONTENT = {
-  title: "ABRINAY | Diseño Sonoro",
+  title: "ABRINAY",
   subtitle: "Diseño Sonoro & Composición para Cine y Medios Digitales",
   ctaPrimary: { text: "Solicitar Propuesta", href: "mailto:abrinay1997@gmail.com" },
   ctaSecondary: { text: "Escuchar Reel", href: "#work" },
