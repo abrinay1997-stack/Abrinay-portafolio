@@ -9,6 +9,7 @@ import Credits from './components/Credits';
 import Footer from './components/Footer';
 import SocialProof from './components/SocialProof';
 import { useReveal } from './hooks/useReveal';
+import { AudioManager } from './components/AudioManager';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -36,6 +37,7 @@ const App: React.FC = () => {
   };
 
   return (
+    <AudioManager>
     <div className="min-h-screen bg-[#000000] text-[#888] selection:bg-[#cc4e00] selection:text-black">
       <Navbar isScrolled={scrolled} onNavigate={navigateTo} currentPage={currentPage} />
       
@@ -71,6 +73,7 @@ const App: React.FC = () => {
 
       <Footer onNavigate={navigateTo} />
     </div>
+    </AudioManager>
   );
 };
 
