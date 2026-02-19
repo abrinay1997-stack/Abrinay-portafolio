@@ -50,6 +50,8 @@
         --nav-height: 100px;
         --text-primary: #ffffff;
         --text-muted: rgba(255, 255, 255, 0.4);
+        --mouse-x: 50%;
+        --mouse-y: 50%;
       }
       html {
         scroll-behavior: smooth;
@@ -107,14 +109,34 @@
           z-index: 50;
           opacity: 0.08;
           background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+          animation: noise-flicker 0.2s infinite steps(4);
+      }
+
+      @keyframes noise-flicker {
+        0% { transform: translate(0,0); }
+        25% { transform: translate(-1%, -1%); }
+        50% { transform: translate(1%, 1%); }
+        75% { transform: translate(-1%, 1%); }
+        100% { transform: translate(1%, -1%); }
       }
 
       .vignette {
           position: fixed;
           inset: 0;
-          background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+          background:
+            radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent 0%, rgba(0,0,0,0.8) 80%),
+            radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
           pointer-events: none;
           z-index: 5;
+          transition: background 0.15s ease-out;
+      }
+
+      .spotlight {
+          position: fixed;
+          inset: 0;
+          background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(204, 78, 0, 0.05), transparent 40%);
+          pointer-events: none;
+          z-index: 4;
       }
 
       .brand-reveal {
@@ -189,11 +211,64 @@
         0%, 100% { height: 2px; }
         50% { height: 12px; }
       }
+
+      /* Scroll Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(10px);
+        transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform, opacity, filter;
+      }
+      .reveal-active {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+
+      @keyframes char-reveal {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+          filter: blur(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+      .char-span {
+        display: inline-block;
+        opacity: 0;
+        animation: char-reveal 1s forwards;
+      }
+
+      .page-fade-enter {
+        opacity: 0;
+        transform: scale(0.98);
+        filter: blur(10px);
+      }
+      .page-fade-active {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+        transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      }
     </style>
 </head>
 <body class="noise">
+    <div class="spotlight"></div>
     <div class="vignette"></div>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+    <script>
+      document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        document.documentElement.style.setProperty('--mouse-x', x + '%');
+        document.documentElement.style.setProperty('--mouse-y', y + '%');
+      });
+    </script>
 </body>
 </html>

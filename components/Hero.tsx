@@ -40,7 +40,15 @@ const Hero: React.FC = () => {
         </div>
         
         <h1 className="text-display font-cinematic brand-reveal mb-8" data-text={HERO_CONTENT.title}>
-          {HERO_CONTENT.title}
+          {HERO_CONTENT.title.split('').map((char, i) => (
+            <span
+              key={i}
+              className="char-span"
+              style={{ animationDelay: `${i * 0.1}s` }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
         </h1>
         
         <p className="text-white/40 font-mono text-[10px] md:text-[12px] tracking-[0.4em] uppercase max-w-2xl mx-auto leading-relaxed mb-12">

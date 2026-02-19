@@ -22,7 +22,8 @@ const PressArchive: React.FC = () => {
             href={item.url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="group relative flex flex-col glass-card p-6 rounded-sm overflow-hidden"
+            className="group relative flex flex-col glass-card p-6 rounded-sm overflow-hidden reveal"
+            style={{ transitionDelay: `${idx * 100}ms` }}
           >
             <div className="relative aspect-video overflow-hidden rounded-sm mb-6 border border-white/5 transition-all duration-500 group-hover:border-white/20">
               <img 
