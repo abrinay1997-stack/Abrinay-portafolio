@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { NAV_LINKS } from '../content/siteContent';
+import AudioToggle from './AudioToggle';
 
 interface NavbarProps {
   isScrolled: boolean;
@@ -42,6 +43,10 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
 
   const handleLinkClick = (link: any) => {
     setIsMenuOpen(false);
+
+    // Dispatch event to inform AudioManager this is a programmatic scroll
+    window.dispatchEvent(new CustomEvent('programmatic-scroll'));
+
     if (link.type === 'page') {
       onNavigate(link.page);
     } else {
@@ -86,11 +91,14 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
         </div>
 
         {/* Action Center */}
-        <div className="flex items-center gap-6" ref={menuRef}>
+        <div className="flex items-center gap-4 md:gap-6" ref={menuRef}>
+          {/* Audio Control */}
+          <AudioToggle />
+
           {/* CTA Persistente - Fase 7 */}
           <a
             href="mailto:abrinay1997@gmail.com"
-            className="px-6 py-2 border border-white/10 text-white/40 text-[9px] tracking-[0.3em] uppercase font-mono hover:bg-white hover:text-black transition-all duration-500 rounded-sm"
+            className="hidden sm:block px-6 py-2 border border-white/10 text-white/40 text-[9px] tracking-[0.3em] uppercase font-mono hover:bg-white hover:text-black transition-all duration-500 rounded-sm"
           >
             Connect_Unit
           </a>
