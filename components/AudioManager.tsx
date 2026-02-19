@@ -16,7 +16,7 @@ export const useAudio = () => {
 };
 
 export const AudioManager: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
 
   const violinRef = useRef<HTMLAudioElement | null>(null);
