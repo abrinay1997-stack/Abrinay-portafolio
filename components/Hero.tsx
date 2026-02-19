@@ -54,6 +54,7 @@ const Hero: React.FC = () => {
         
         <p className="text-white/70 text-[12px] md:text-[13px] tracking-[0.2em] uppercase max-w-3xl mx-auto leading-relaxed font-bold">
           Música original y diseño sonoro para cine, marcas y artistas que buscan una identidad sonora de alto impacto.
+          Diseño Sonoro | Composición | Grabación | Mezcla | Mastering
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

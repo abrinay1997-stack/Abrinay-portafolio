@@ -135,7 +135,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="flex flex-col md:flex-row justify-between items-center text-[12px] text-white/60 uppercase tracking-[0.2em] gap-12 pt-20 border-t border-white/10">
           <button
             type="button"
-            className="font-bold tracking-widest hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm"
+            className="font-bold tracking-widest cursor-pointer hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc4e00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm"
             onClick={() => handlePageLink('home')}
           >
             © 2026 ABRINAY | BUKOFLOW LLC.
