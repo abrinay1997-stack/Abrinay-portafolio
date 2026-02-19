@@ -6,6 +6,10 @@ interface NavbarProps {
   currentPage: 'home' | 'biography';
 }
 
+type NavLink =
+  | { name: string; type: 'page'; page: 'home' | 'biography'; href: string }
+  | { name: string; type: 'anchor'; href: string };
+
 const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -41,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
     };
   }, [isMenuOpen]);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { name: 'Inicio', type: 'page', page: 'home', href: '#hero' },
     { name: 'Biografía', type: 'page', page: 'biography', href: '#bio' },
     { name: 'Catálogo', type: 'anchor', href: '#work' },
@@ -51,22 +55,26 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
     { name: 'Contacto', type: 'anchor', href: '#contact' },
   ];
 
-  const handleLinkClick = (link: any) => {
+  const scrollToAnchor = (selector: string) => {
+    const el = document.querySelector(selector);
+    el?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleLinkClick = (link: NavLink) => {
     setIsMenuOpen(false);
+
     if (link.type === 'page') {
       onNavigate(link.page);
-    } else {
-      if (currentPage !== 'home') {
-        onNavigate('home');
-        setTimeout(() => {
-          const el = document.querySelector(link.href);
-          el?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      } else {
-        const el = document.querySelector(link.href);
-        el?.scrollIntoView({ behavior: 'smooth' });
-      }
+      return;
     }
+
+    if (currentPage !== 'home') {
+      onNavigate('home');
+      setTimeout(() => scrollToAnchor(link.href), 100);
+      return;
+    }
+
+    scrollToAnchor(link.href);
   };
 
   const toggleMenu = (e: React.MouseEvent) => {
@@ -77,15 +85,11 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled, onNavigate, currentPage }) 
   const goToContact = () => {
     if (currentPage !== 'home') {
       onNavigate('home');
-      setTimeout(() => {
-        const el = document.querySelector('#contact');
-        el?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      setTimeout(() => scrollToAnchor('#contact'), 100);
       return;
     }
 
-    const el = document.querySelector('#contact');
-    el?.scrollIntoView({ behavior: 'smooth' });
+    scrollToAnchor('#contact');
   };
 
   return (
