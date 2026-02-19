@@ -17,7 +17,7 @@ const ChevronRightIcon = () => (
 
 // Define SectionTitle with optional children to avoid strict TS errors in certain environments
 const SectionTitle = ({ children }: { children?: React.ReactNode }) => (
-    <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-wider uppercase bg-gradient-to-r from-white via-[#cc4e00] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_4s_linear_infinite] text-center font-cinematic">
+    <h2 className="text-h2 font-bold mb-8 tracking-[0.3em] uppercase text-center">
         {children}
     </h2>
 );
@@ -50,7 +50,7 @@ export const SocialProof = () => {
         <section id="spotify-showcase" className="w-full pt-32 pb-40 overflow-hidden bg-black border-y border-white/5">
             <div className="max-w-6xl mx-auto px-5">
                 <SectionTitle>Sincronización Digital</SectionTitle>
-                <p className="text-center text-[12px] tracking-[0.22em] uppercase text-white/60 mb-16 font-mono">Archive_Access // Global_Distribution</p>
+                <p className="text-center text-[10px] tracking-[0.5em] uppercase text-white/20 mb-16 font-mono">Archive_Access // Global_Distribution</p>
                 
                 <div className="relative w-full h-[400px] flex items-center justify-center mt-10" style={{ perspective: '1200px' }}>
                     

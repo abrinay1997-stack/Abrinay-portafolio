@@ -8,20 +8,20 @@ const Biography: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
         <div className="space-y-16">
           <div className="flex items-start gap-8">
-            <div className="inline-block border-l-4 border-[#cc4e00] pl-10">
-              <h1 className="font-cinematic text-4xl md:text-7xl font-bold text-white uppercase tracking-tighter leading-none mb-4">
+            <div className="inline-block border-l border-white/20 pl-10">
+              <h1 className="text-display font-bold text-white uppercase mb-4">
                 {BIOGRAPHY_CONTENT.name}<br />
               </h1>
-              <p className="text-[12px] text-[#cc4e00] tracking-[0.3em] uppercase mt-4 font-mono font-black">{BIOGRAPHY_CONTENT.role}</p>
+              <p className="text-[10px] text-[#cc4e00] tracking-[0.4em] uppercase mt-4 font-mono">{BIOGRAPHY_CONTENT.role}</p>
             </div>
-            <div className="text-[12px] text-white/35 font-mono pt-2 hidden md:block">
+            <div className="text-[10px] text-white/20 font-mono pt-2 hidden md:block tracking-widest">
               {BIOGRAPHY_CONTENT.authIndex}
             </div>
           </div>
 
-          <div className="space-y-12 text-white/60 text-[15px] md:text-[18px] leading-[1.8] tracking-[0.08em] font-mono">
+          <div className="space-y-12 text-white/40 text-[14px] md:text-[16px] leading-[1.8] tracking-[0.05em] font-mono">
             {BIOGRAPHY_CONTENT.paragraphs.map((p, i) => (
-              <p key={i} className="animate-in slide-in-from-bottom duration-700" style={{ animationDelay: `${(i+1)*100}ms` }}>
+              <p key={i} className={`animate-in slide-in-from-bottom duration-700 ${i === 2 ? 'border-l border-white/10 pl-8 italic text-white/60' : ''}`} style={{ animationDelay: `${(i+1)*100}ms` }}>
                 {p}
               </p>
             ))}
@@ -42,9 +42,9 @@ const Biography: React.FC = () => {
           <div className="absolute -top-10 -right-10 text-[12px] text-white/35 font-mono uppercase vertical-text tracking-[1.2em] group-hover:text-[#cc4e00]/40 transition-colors">
             SYST_MONITOR_ACTIVE
           </div>
-          <div className="glass p-12 md:p-16 relative z-10 space-y-16 border border-white/10 shadow-2xl bg-black/40">
-            <h3 className="text-xs text-white/80 tracking-[0.1em] uppercase font-bold border-b border-white/10 pb-6 flex justify-between items-center">
-              <span>HITOS CINEMATOGRÁFICOS</span>
+          <div className="glass-card p-12 md:p-16 relative z-10 space-y-16 rounded-sm">
+            <h3 className="text-[10px] text-white/30 tracking-[0.3em] uppercase font-mono border-b border-white/5 pb-6 flex justify-between items-center">
+              <span>HITOS_CINEMATOGRÁFICOS //</span>
               <div className="flex gap-1">
                  <div className="w-1.5 h-1.5 rounded-full bg-[#cc4e00] animate-pulse"></div>
                  <span className="text-[11px] text-[#cc4e00]">SIGNAL</span>
@@ -54,10 +54,10 @@ const Biography: React.FC = () => {
             <div className="space-y-12">
               {BIOGRAPHY_CONTENT.milestones.map((m, i) => (
                 <div key={i} className="flex gap-10 items-start group/item">
-                  <span className="text-[#cc4e00] text-sm font-bold font-mono pt-1">{m.year}</span>
+                  <span className="text-[#cc4e00] text-xs font-mono pt-1 tracking-tighter">[{m.year}]</span>
                   <div>
-                    <h4 className="text-white text-base tracking-[0.1em] uppercase mb-3 group-hover/item:text-[#cc4e00] transition-colors">{m.title}</h4>
-                    <p className="text-[13px] text-white/70 tracking-[0.06em] leading-[1.8]">{m.description}</p>
+                    <h4 className="text-white text-sm tracking-[0.2em] uppercase mb-3 group-hover/item:text-[#cc4e00] transition-colors">{m.title}</h4>
+                    <p className="text-[12px] text-white/40 tracking-[0.02em] leading-[1.8] font-mono">{m.description}</p>
                   </div>
                 </div>
               ))}
