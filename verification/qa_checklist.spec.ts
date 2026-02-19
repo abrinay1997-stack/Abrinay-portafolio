@@ -1,7 +1,7 @@
 
 import { test, expect } from '@playwright/test';
 
-const URL = 'http://localhost:3002/Abrinay-portafolio/';
+const URL = 'http://localhost:3001/Abrinay-portafolio/';
 
 test.describe('QA Integral - Fase 14', () => {
 

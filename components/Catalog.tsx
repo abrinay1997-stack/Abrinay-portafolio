@@ -1,18 +1,31 @@
 
-import React, { useState, useRef, MouseEvent } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Category } from '../types';
 import { PROJECTS, SPOTIFY_LINKS } from '../content/siteContent';
 
 const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const rafId = useRef<number | null>(null);
 
-  const handleMouseMove = (e: MouseEvent) => {
+  useEffect(() => {
+    return () => {
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+    };
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
     if (cardRef.current) {
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+
       const rect = cardRef.current.getBoundingClientRect();
-      setMousePos({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      rafId.current = requestAnimationFrame(() => {
+        if (cardRef.current) {
+          cardRef.current.style.setProperty('--x', `${x}px`);
+          cardRef.current.style.setProperty('--y', `${y}px`);
+        }
       });
     }
   };
@@ -25,9 +38,9 @@ const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
       className="group relative flex flex-col glass-card p-4 rounded-sm reveal overflow-hidden"
     >
       <div
-        className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 will-change-[background]"
         style={{
-          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(204, 78, 0, 0.08), transparent 40%)`
+          background: `radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(204, 78, 0, 0.15), transparent 40%)`
         }}
       ></div>
 
