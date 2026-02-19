@@ -1,6 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
-import { GoogleGenAI } from "@google/genai";
+
+const BULLETINS = [
+  'ABRINAY CONSOLIDA SU CATÁLOGO DE PRODUCCIÓN Y DISEÑO SONORO PARA CINE Y CONTENIDO DIGITAL.',
+  'CONTINÚA LA PROYECCIÓN INTERNACIONAL CON DISTRIBUCIÓN EN ALIANZA CON THE ORCHARD Y SYMPHONIC.',
+  'NUEVAS OBRAS ENFOCADAS EN IDENTIDAD SONORA DE ALTO IMPACTO PARA ARTISTAS Y MARCAS.'
+];
 
 const LatestNews: React.FC = () => {
   const [news, setNews] = useState<string>('');
@@ -9,27 +13,24 @@ const LatestNews: React.FC = () => {
   const fetchLatestUpdates = async () => {
     setLoading(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: "Genera un boletín extremadamente breve (3 puntos) sobre la actualidad de Abrinay (Brian Joel Carvajal). Destaca su rol como rapero, productor colombiano y sus hitos con Sony Music (The Orchard) y Symphonic. Usa un tono profesional, minimalista y audaz. Máximo 50 palabras en total.",
-        config: { tools: [{ googleSearch: {} }] },
-      });
-      setNews(response.text || 'LA SEÑAL ES ESTABLE.');
-    } catch (e) {
-      setNews("CONEXIÓN INTERRUMPIDA: REINTENTANDO VÍNCULO CON EL SATÉLITE.");
+      await new Promise((resolve) => setTimeout(resolve, 600));
+      setNews(BULLETINS.join(' '));
+    } catch {
+      setNews('CONEXIÓN INTERRUMPIDA: REINTENTANDO VÍNCULO CON EL SATÉLITE.');
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => { fetchLatestUpdates(); }, []);
+  useEffect(() => {
+    fetchLatestUpdates();
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-24">
       <div className="border border-white/5 p-8 md:p-12 relative overflow-hidden bg-black">
         <div className="absolute top-0 right-0 p-4 text-[9px] text-[#ff3c00] uppercase tracking-tighter font-mono font-bold">INFO_ACTUALIZADA_BUKOFLOW</div>
-        
+
         <div className="mb-12">
           <h2 className="text-white/80 text-[12px] font-bold tracking-[0.6em] uppercase mb-4">Monitor de Trayectoria</h2>
           <div className="w-full h-[1px] bg-white/10"></div>
