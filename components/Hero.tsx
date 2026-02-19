@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { HERO_CONTENT } from '../content/siteContent';
 
 const Hero: React.FC = () => {
   return (
@@ -27,6 +28,7 @@ const Hero: React.FC = () => {
           src="https://images.unsplash.com/photo-1478720568477-152d9b164e63?q=80&w=2000&auto=format&fit=crop" 
           alt="Atmosphere" 
           className="w-full h-full object-cover grayscale opacity-10 transition-transform duration-[30s] hover:scale-110"
+          fetchPriority="high"
         />
       </div>
 
@@ -37,13 +39,28 @@ const Hero: React.FC = () => {
            <div className="w-8 h-[1px] bg-[#cc4e00]"></div>
         </div>
         
-        <h1 className="font-cinematic text-5xl md:text-8xl font-bold mb-8 glitch-text tracking-[0.1em] text-white" data-text="ABRINAY VOID">
-          ABRINAY VOID
+        <h1 className="font-cinematic text-4xl md:text-7xl font-bold mb-8 glitch-text tracking-[0.1em] text-white uppercase" data-text={HERO_CONTENT.title}>
+          {HERO_CONTENT.title}
         </h1>
         
-        <p className="text-white/50 text-[12px] md:text-[13px] tracking-[0.35em] uppercase max-w-2xl mx-auto leading-relaxed font-bold">
-          Diseño Sonoro | Composición | Grabacion | Mezcla | Mastering
+        <p className="text-white/50 text-[12px] md:text-[13px] tracking-[0.35em] uppercase max-w-2xl mx-auto leading-relaxed font-bold mb-12">
+          {HERO_CONTENT.subtitle}
         </p>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12">
+          <a
+            href={HERO_CONTENT.ctaPrimary.href}
+            className="px-10 py-4 bg-[#cc4e00] text-black text-[12px] tracking-[0.2em] uppercase font-black hover:bg-white transition-all duration-500 w-full md:w-auto"
+          >
+            {HERO_CONTENT.ctaPrimary.text}
+          </a>
+          <a
+            href={HERO_CONTENT.ctaSecondary.href}
+            className="px-10 py-4 border border-white/20 text-white text-[12px] tracking-[0.2em] uppercase font-black hover:border-[#cc4e00] hover:text-[#cc4e00] transition-all duration-500 w-full md:w-auto backdrop-blur-sm"
+          >
+            {HERO_CONTENT.ctaSecondary.text}
+          </a>
+        </div>
       </div>
 
       {/* Decorative elements */}
@@ -53,7 +70,7 @@ const Hero: React.FC = () => {
           <div className="bar w-[1px] bg-[#cc4e00]" style={{animationDuration: '0.9s'}}></div>
           <div className="bar w-[1px] bg-[#cc4e00]" style={{animationDuration: '0.6s'}}></div>
         </div>
-        <div className="text-[11px] text-white/80 font-mono tracking-[0.25em] uppercase">Estudio Independiente / Bogotá - PTY</div>
+        <div className="text-[11px] text-white/80 font-mono tracking-[0.25em] uppercase">{HERO_CONTENT.location}</div>
       </div>
     </div>
   );

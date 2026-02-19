@@ -1,68 +1,7 @@
 
 import React, { useState } from 'react';
-import { Project, Category } from '../types';
-
-const PROJECTS: Project[] = [
-  // Film & Series
-  {
-    id: 'f1',
-    title: 'Peter: Ni soldado, ni civil, ni traidor',
-    genre: 'Original Score / Documentary',
-    description: 'Banda sonora original para el largometraje documental sobre la invasión a Panamá.',
-    category: 'film',
-    imageUrl: 'https://cdn.myportfolio.com/2d2135c2-cc3b-4c97-8e3e-ba235dd00230/d9b7d24a-cf34-4286-b101-42eb1b574dcd_rw_1200.png?h=2b603ec46503ef64d59885837fd0934b'
-  },
-  {
-    id: 'f2',
-    title: 'Cuando Florezcan los Guayacanes',
-    genre: 'Film Score / Drama',
-    description: 'Composición integral y diseño sonoro para la pieza cinematográfica panameña.',
-    category: 'film',
-    imageUrl: 'https://elsiglo.com.pa/binrepository/600x384/0c0/0d0/none/275766432/IHJJ/6132bf4a1adc1_ES24184296_MG281493175.jpg'
-  },
-  {
-    id: 'f3',
-    title: 'Memorial',
-    genre: 'Original Score / Atmosphere',
-    description: 'Pieza conmemorativa de profunda carga emocional y diseño sonoro inmersivo.',
-    category: 'film',
-    imageUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d4/b5/33/d4b5335d-c79c-ac17-1e9d-f7c1dee67a96/199257827093_cover.jpg/600x600cc.webp'
-  },
-  // Selected Production Works (Singles)
-  {
-    id: 'p1',
-    title: 'Manda Tu Pista',
-    genre: 'Urban / Winner Single',
-    description: 'Producción ganadora de la primera temporada del reality de Telemetro.',
-    category: 'prod',
-    imageUrl: 'https://media.telemetro.com/p/7609770dd3515f41f77001a8d63d9b02/adjuntos/311/imagenes/016/603/0016603507/captura-pantalla-931png.png'
-  },
-  {
-    id: 'p2',
-    title: 'Dos Estaciones',
-    genre: 'Ambient / Experimental',
-    description: 'Paisajes sonoros de la obra "Diálogos entre el clima y la humanidad".',
-    category: 'film',
-    imageUrl: 'https://elsiglo.com.pa/binrepository/700x466/0c36/700d393/none/275766432/CFFD/danza1_181-11206189_20250905134932.jpg'
-  },
-  {
-    id: 'p3',
-    title: 'The Orchard Selection',
-    genre: 'Production / Distribution',
-    description: 'Curaduría y distribución global bajo el sello de Sony Music / The Orchard.',
-    category: 'prod',
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273676c89697960377045939221'
-  }
-];
-
-const SPOTIFY_LINKS: Record<string, string> = {
-  'f1': 'https://open.spotify.com/intl-es/album/3ro7kOlve8NELlySdBVpIR',
-  'f2': 'https://open.spotify.com/intl-es/album/45oY2EKuZvN0uujVbckYkw',
-  'f3': 'https://music.apple.com/pa/album/memorial-single/1792578270',
-  'p1': 'https://open.spotify.com/intl-es/track/1y9mnArBtexJx9WUuoVKKK',
-  'p2': 'https://elsiglo.com.pa/farandula/dos-estaciones-dialogos-entre-el-clima-y-la-humanidad-MK15792259',
-  'p3': 'https://open.spotify.com/intl-es/track/5tuxq8IrJspC0eCeB3aOTm'
-};
+import { Category } from '../types';
+import { PROJECTS, SPOTIFY_LINKS } from '../content/siteContent';
 
 const Catalog: React.FC = () => {
   const [filter, setFilter] = useState<Category>('all');
@@ -92,6 +31,8 @@ const Catalog: React.FC = () => {
                 src={project.imageUrl} 
                 alt={project.title}
                 className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
               />
               
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500"></div>
@@ -120,7 +61,7 @@ const Catalog: React.FC = () => {
                   {project.title}
                 </h3>
                 <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-500">
-                  <p className="text-[13px] text-white/70 tracking-[0.08em] uppercase leading-relaxed font-light">
+                  <p className="text-[13px] text-white/70 tracking-[0.08em] leading-relaxed font-light">
                     {project.description}
                   </p>
                 </div>
